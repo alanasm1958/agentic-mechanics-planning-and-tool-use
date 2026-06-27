@@ -1,0 +1,18 @@
+# Local notes and working files (not part of the training package)
+CLAUDE.md
+PLAN.md
+slides/_alt_define_explain_style.md
+
+# OS and editor junk
+.DS_Store
+**/.DS_Store
+.playwright-mcp/
+.vscode/
+.idea/
+
+# Python build artifacts
+__pycache__/
+**/__pycache__/
+*.pyc
+.venv/
+venv/

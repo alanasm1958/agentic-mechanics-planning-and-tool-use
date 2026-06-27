@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Assignments Workbook — Agentic Mechanics: Planning &amp; Tool Use</title>
+<style>
+  :root { --undp:#0063AC; --tint:#e8f1f8; --ink:#1a1a1a; --muted:#5a6b80; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:'Helvetica Neue', Arial, sans-serif; color:var(--ink); background:#f4f6f9; line-height:1.55; }
+  .wrap { max-width:860px; margin:0 auto; padding:30px 24px 64px; }
+  header.top { display:flex; align-items:center; justify-content:space-between; gap:20px; border-bottom:4px solid var(--undp); padding-bottom:16px; }
+  header.top h1 { color:var(--undp); font-size:29px; margin:0 0 4px; }
+  header.top .sub { color:var(--muted); font-size:15px; }
+  header.top img { height:60px; }
+  .howto { background:var(--tint); border-radius:12px; padding:16px 20px; margin:22px 0; font-size:15px; }
+  .howto b { color:var(--undp); }
+  h2.sec { color:var(--undp); font-size:22px; margin:36px 0 6px; border-bottom:2px solid #e1e8f0; padding-bottom:6px; }
+  h3.part { color:#1a1a1a; font-size:17px; margin:22px 0 8px; }
+  .pillrow { margin:4px 0 10px; }
+  .pill { display:inline-block; background:var(--undp); color:#fff; font-size:12px; font-weight:700; padding:3px 11px; border-radius:6px; }
+  .q { background:#fff; border:1px solid #e1e8f0; border-radius:10px; padding:14px 18px; margin:11px 0; }
+  .q .num { color:var(--undp); font-weight:700; }
+  .opts { margin:8px 0 2px; color:#33404f; font-size:15px; }
+  .opts div { margin:2px 0; }
+  details { background:#fff; border:1px solid #e1e8f0; border-radius:10px; margin:10px 0; overflow:hidden; }
+  details.inq { border:1px dashed #cfe0f1; margin:10px 0 0; }
+  summary { cursor:pointer; padding:9px 16px; font-weight:700; color:var(--undp); list-style:none; user-select:none; }
+  summary::-webkit-details-marker { display:none; }
+  summary::before { content:'\25B8  '; }
+  details[open] summary::before { content:'\25BE  '; }
+  .body { padding:0 16px 14px; font-size:15px; color:#2a3542; }
+  .body.ans { color:#1f3a57; }
+  pre { background:#0f2438; color:#e8eef6; padding:14px 16px; border-radius:10px; overflow:auto; font-size:13px; line-height:1.55; margin:8px 0; }
+  code { font-family:'SF Mono', Menlo, Consolas, monospace; }
+  .steps { background:#fff; border:1px solid #e1e8f0; border-left:4px solid var(--undp); border-radius:10px; padding:6px 20px; margin:10px 0; }
+  .scen { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:10px 0; }
+  .scen .s { background:#fff; border:1px solid #e1e8f0; border-radius:10px; padding:12px 16px; font-size:14.5px; }
+  .scen .s b { color:var(--undp); }
+  .req { background:#fff; border:1px solid #e1e8f0; border-radius:10px; padding:8px 20px; margin:10px 0; }
+  .req li { margin:6px 0; }
+  table.rubric { width:100%; border-collapse:collapse; font-size:13.5px; margin:10px 0; }
+  table.rubric th, table.rubric td { border:1px solid #dbe6f3; padding:8px 10px; text-align:left; vertical-align:top; }
+  table.rubric th { background:var(--tint); color:var(--undp); }
+  table.rubric td.crit { font-weight:700; color:#1a1a1a; white-space:nowrap; }
+  footer.foot { margin-top:40px; padding-top:16px; border-top:1px solid #e1e8f0; color:var(--muted); font-size:13px; text-align:center; }
+  @media (max-width:620px){ .scen{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <h1>Assignments Workbook</h1>
+      <div class="sub">Agentic Mechanics: Planning &amp; Tool Use &nbsp;&middot;&nbsp; exercises, with answers and solutions</div>
+    </div>
+    <img src="../assets/undp-logo.svg" alt="UNDP">
+  </header>
+
+  <div class="howto">
+    <b>How to use this workbook.</b> Try each question and exercise yourself first, then reveal the
+    answer or sample solution to check your thinking. The hands-on exercises start from the matching
+    student notebook in Google Colab. Answers and solutions are one good response, not the only one.
+  </div>
+
+  <!-- ===================== A0 ===================== -->
+  <h2 class="sec">Part 1 &middot; Concept check (A0)</h2>
+  <p>A short quiz on the ideas from the day. No coding. Answer in your own words, then reveal the answer.</p>
+
+  <h3 class="part">Foundations</h3>
+
+  <div class="q"><span class="num">1.</span> In one sentence, what is the difference between a chatbot and an agent?
+    <details class="inq"><summary>Show answer</summary><div class="body ans">A chatbot answers or gives advice, while an agent takes action to get the task done, by planning and using tools, not just replying.</div></details>
+  </div>
+  <div class="q"><span class="num">2.</span> Name the four repeating steps of the agent loop.
+    <details class="inq"><summary>Show answer</summary><div class="body ans">Goal, plan, act, observe (then repeat). Accept "plan, act, observe" with the goal as the starting input.</div></details>
+  </div>
+  <div class="q"><span class="num">3.</span> In the brain / hands / notebook / heartbeat analogy, the <b>tools</b> are the:
+    <div class="opts"><div>a) brain</div><div>b) hands</div><div>c) notebook</div><div>d) heartbeat</div></div>
+    <details class="inq"><summary>Show answer</summary><div class="body ans"><b>b) hands.</b> Tools are how the agent acts in the world.</div></details>
+  </div>
+  <div class="q"><span class="num">4.</span> True or false: an agent is conscious and thinks like a person.
+    <details class="inq"><summary>Show answer</summary><div class="body ans"><b>False.</b> An agent is a loop run carefully, with a model choosing the next step.</div></details>
+  </div>
+
+  <h3 class="part">Tool use</h3>
+
+  <div class="q"><span class="num">5.</span> In the tool-use loop, who actually runs the tool: the model, or your code?
+    <details class="inq"><summary>Show answer</summary><div class="body ans"><b>Your code</b> runs the tool. The model only asks for it.</div></details>
+  </div>
+  <div class="q"><span class="num">6.</span> A tool is described by three things. Name them.
+    <details class="inq"><summary>Show answer</summary><div class="body ans">A <b>name</b>, a <b>description</b>, and the <b>inputs</b> it needs (its schema).</div></details>
+  </div>
+  <div class="q"><span class="num">7.</span> The model decides whether to use a tool mainly by reading the tool's:
+    <div class="opts"><div>a) name and description</div><div>b) hidden source code</div><div>c) file size</div><div>d) author</div></div>
+    <details class="inq"><summary>Show answer</summary><div class="body ans"><b>a) name and description.</b> The model never sees the hidden code.</div></details>
+  </div>
+  <div class="q"><span class="num">8.</span> Why is it useful for a failing tool to return a clear error message instead of crashing?
+    <details class="inq"><summary>Show answer</summary><div class="body ans">A clear error tells the model what went wrong so it can fix its request and try again, instead of the whole program stopping.</div></details>
+  </div>
+
+  <h3 class="part">Planning</h3>
+
+  <div class="q"><span class="num">9.</span> Which planning pattern interleaves a thought and an action, step by step?
+    <div class="opts"><div>a) Chain of Thought</div><div>b) ReAct</div><div>c) Plan and Execute</div><div>d) Reflection</div></div>
+    <details class="inq"><summary>Show answer</summary><div class="body ans"><b>b) ReAct.</b></div></details>
+  </div>
+  <div class="q"><span class="num">10.</span> The phrase "let us think step by step" is an example of which pattern?
+    <details class="inq"><summary>Show answer</summary><div class="body ans"><b>Chain of Thought.</b></div></details>
+  </div>
+  <div class="q"><span class="num">11.</span> In one sentence, what does <b>reflection</b> mean for an agent?
+    <details class="inq"><summary>Show answer</summary><div class="body ans">The agent reviews its own answer and improves it if it is not good enough (make, judge, improve).</div></details>
+  </div>
+  <div class="q"><span class="num">12.</span> What is <b>replanning</b>, and when does an agent need it?
+    <details class="inq"><summary>Show answer</summary><div class="body ans">Making a new plan when the world does not match the old one, for example when a tool fails or new information appears.</div></details>
+  </div>
+
+  <h3 class="part">Putting it together</h3>
+
+  <div class="q"><span class="num">13.</span> Give one example of a task where you should <b>not</b> use an agent.
+    <details class="inq"><summary>Show answer</summary><div class="body ans">Any task a single prompt or a fixed script already handles, for example a simple one-off question with no steps that change. Accept reasonable examples.</div></details>
+  </div>
+  <div class="q"><span class="num">14.</span> Why is it worth checking the <b>path</b> an agent took, not just its final answer?
+    <details class="inq"><summary>Show answer</summary><div class="body ans">A right answer can come from luck or bad steps. Checking the path shows whether the agent reasoned and chose tools sensibly, which matters for trust and for catching problems early.</div></details>
+  </div>
+  <div class="q"><span class="num">15.</span> Name the three things from the "practical trio" that you keep in check when running an agent.
+    <details class="inq"><summary>Show answer</summary><div class="body ans"><b>Cost, speed, and safety.</b></div></details>
+  </div>
+
+  <!-- ===================== A1 / A2 ===================== -->
+  <h2 class="sec">Part 2 &middot; Hands-on exercises</h2>
+
+  <h3 class="part">A1 &middot; Add a tool <span class="pill">Notebook 1</span></h3>
+  <p>Give an agent a brand new tool of your own and get it to use the tool. Start from
+  <b>01_first_tool_use_loop_student.ipynb</b> in Google Colab.</p>
+  <div class="steps">
+    <ul>
+      <li>Add a new tool. A simple one: count the characters in a piece of text.</li>
+      <li>Write the tool definition (name, description, one input) and the Python function.</li>
+      <li>Add it to the <code>tools</code> list and run it when the model asks.</li>
+      <li>Ask a question that needs it, for example "How many characters are in the word 'development'?"</li>
+    </ul>
+  </div>
+  <details><summary>Show sample solution</summary><div class="body">
+    <p>One good answer. The learner adds a tool that counts characters.</p>
+<pre><code>text_length_tool = {
+    "name": "text_length",
+    "description": "Count how many characters are in a piece of text. Use this when the user asks how long a word or phrase is.",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "text": {"type": "string", "description": "The text to measure."}
+        },
+        "required": ["text"],
+    },
+}
+
+def run_text_length(text):
+    return str(len(text))
+
+tools = [calculator_tool, text_length_tool]
+
+# In the loop, dispatch by tool name:
+for block in response.content:
+    if block.type == "tool_use":
+        if block.name == "calculator":
+            result = run_calculator(block.input["expression"])
+        elif block.name == "text_length":
+            result = run_text_length(block.input["text"])
+        tool_results.append({"type": "tool_result", "tool_use_id": block.id, "content": result})</code></pre>
+    <p><b>Grading:</b> the tool is defined correctly, the agent actually calls it, and the learner can explain what happened.</p>
+  </div></details>
+
+  <h3 class="part">A2 &middot; Improve the multi-tool agent <span class="pill">Notebook 3</span></h3>
+  <p>Add a fourth tool and handle a mistake gracefully. Start from
+  <b>03_multi_tool_agent_student.ipynb</b> in Google Colab.</p>
+  <div class="steps">
+    <ul>
+      <li>Add a fourth tool of your own, for example one that reverses a piece of text.</li>
+      <li>Wire it into both the <code>tools</code> list and the <code>run_tool</code> dispatcher.</li>
+      <li>Ask a fact that does not exist and watch the agent read the error and recover.</li>
+      <li>Ask three questions so the agent uses three different tools; read the Thought, Action, Observation lines.</li>
+    </ul>
+  </div>
+  <details><summary>Show sample solution</summary><div class="body">
+    <p>One good answer. The learner adds a tool that reverses text.</p>
+<pre><code>reverse_tool = {
+    "name": "reverse_text",
+    "description": "Return a piece of text reversed, back to front. Use this when the user asks to reverse or flip text.",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "text": {"type": "string", "description": "The text to reverse."}
+        },
+        "required": ["text"],
+    },
+}
+
+def run_reverse(text):
+    return text[::-1]
+
+tools = [calculator_tool, lookup_tool, greeting_tool, reverse_tool]
+
+def run_tool(name, tool_input):
+    if name == "calculator":
+        return run_calculator(tool_input["expression"])
+    if name == "lookup_fact":
+        return run_lookup(tool_input["name"])
+    if name == "greet_in_language":
+        return run_greeting(tool_input["language"])
+    if name == "reverse_text":
+        return run_reverse(tool_input["text"])
+    return "Error: unknown tool."</code></pre>
+    <p><b>Grading:</b> a new working tool wired into both places, sensible tool selection across questions, and a clear explanation of how the agent chose and recovered.</p>
+  </div></details>
+
+  <!-- ===================== Capstone ===================== -->
+  <h2 class="sec">Part 3 &middot; Capstone</h2>
+  <p>Build a small agent end to end that plans, uses more than one tool, and gives a clear answer.
+  Start from <b>05_capstone_student.ipynb</b>. Pick one scenario, or design your own with your trainer.</p>
+
+  <div class="scen">
+    <div class="s"><b>Field data helper</b><br>Answer questions from a small program dataset, using a lookup tool and a calculator.</div>
+    <div class="s"><b>Multilingual FAQ assistant</b><br>Answer a few common questions and reply or greet in more than one language.</div>
+    <div class="s"><b>Report helper</b><br>Pull a few numbers from a small table and write a short plain-language summary.</div>
+    <div class="s"><b>Indicator calculator</b><br>Turn raw numbers (households, clinics) into simple program metrics.</div>
+  </div>
+
+  <h3 class="part">Requirements</h3>
+  <div class="req">
+    <ul>
+      <li>Runs from top to bottom without errors.</li>
+      <li>Uses <b>at least two tools</b>, each for the right request.</li>
+      <li>Uses the <b>agent loop</b> to plan across more than one step.</li>
+      <li>Handles at least one <b>error or missing value</b> without crashing.</li>
+      <li>Comes with a short written note: what it does, which tools and why, and one example of planning across steps.</li>
+    </ul>
+  </div>
+
+  <h3 class="part">Grading rubric (out of 12)</h3>
+  <p>Score each criterion 0, 1, or 2. A clear, simple, working agent should reach full marks.</p>
+  <table class="rubric">
+    <tr><th>Criterion</th><th>0</th><th>1</th><th>2</th></tr>
+    <tr><td class="crit">Runs</td><td>Errors before any answer</td><td>Runs with small fixes</td><td>Runs end to end, no errors</td></tr>
+    <tr><td class="crit">Two or more tools</td><td>One tool or none</td><td>Two, but one barely used</td><td>Two or more, each used for the right request</td></tr>
+    <tr><td class="crit">Plans across steps</td><td>Single step only</td><td>Plans, but the loop is shaky</td><td>Clearly plans across steps using the loop</td></tr>
+    <tr><td class="crit">Handles an error</td><td>Crashes on a bad input</td><td>Recovers, but awkwardly</td><td>Reads the error and recovers or replans cleanly</td></tr>
+    <tr><td class="crit">Written note</td><td>Missing or unclear</td><td>Explains some of it</td><td>Clear on what, which tools, and a planning example</td></tr>
+    <tr><td class="crit">Clarity</td><td>Hard to follow</td><td>Mostly readable</td><td>Readable, sensible names, helpful comments</td></tr>
+  </table>
+  <p style="font-size:14px;color:#5a6b80;">Bands: 11 to 12 excellent &middot; 8 to 10 good &middot; 5 to 7 developing &middot; below 5 needs another attempt with kind, specific feedback.</p>
+
+  <footer class="foot">UNDP Istanbul International Center for Private Sector in Development (IICPSD)
+  &nbsp;&middot;&nbsp; Agentic AI &amp; Vibe Coding &nbsp;&middot;&nbsp; Prepared by Alan Al-Jammoor</footer>
+
+</div>
+</body>
+</html>

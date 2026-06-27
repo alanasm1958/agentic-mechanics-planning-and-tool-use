@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Course Overview — Agentic Mechanics: Planning &amp; Tool Use</title>
+<style>
+  :root { --undp:#0063AC; --tint:#e8f1f8; --ink:#1a1a1a; --muted:#5a6b80; --amber:#ffb020; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:'Helvetica Neue', Arial, sans-serif; color:var(--ink); background:#f4f6f9; line-height:1.5; }
+  .wrap { max-width:960px; margin:0 auto; padding:36px 24px 64px; }
+  header.top { display:flex; align-items:center; justify-content:space-between; gap:20px; border-bottom:4px solid var(--undp); padding-bottom:16px; }
+  header.top h1 { color:var(--undp); font-size:30px; margin:0 0 4px; }
+  header.top .sub { color:var(--muted); font-size:15px; }
+  header.top img { height:62px; }
+  .hero { background:linear-gradient(180deg,#0063AC,#0a4f86); color:#fff; border-radius:14px; padding:26px 30px; margin:24px 0 30px; }
+  .hero p { margin:0; font-size:20px; line-height:1.5; }
+  .hero b { color:#ffd98a; }
+  h2.sec { color:var(--undp); font-size:22px; margin:34px 0 14px; }
+  .obj { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .obj .item { background:#fff; border:1px solid #e1e8f0; border-left:4px solid var(--undp); border-radius:10px; padding:14px 16px; font-size:15px; }
+  .obj .item b { color:var(--undp); }
+  .tabs { display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap; }
+  .tab { border:2px solid var(--undp); background:#fff; color:var(--undp); font-weight:700; font-size:15px; padding:8px 18px; border-radius:999px; cursor:pointer; }
+  .tab.active { background:var(--undp); color:#fff; }
+  .panel { display:none; }
+  .panel.active { display:block; }
+  .time-row { display:flex; gap:16px; align-items:stretch; margin:0; }
+  .time-row .t { width:84px; flex-shrink:0; color:var(--muted); font-size:14px; font-weight:700; padding-top:14px; text-align:right; }
+  .time-row .bar { width:14px; flex-shrink:0; position:relative; }
+  .time-row .bar::before { content:''; position:absolute; left:5px; top:0; bottom:0; width:3px; background:#dbe6f3; }
+  .time-row .dot { position:absolute; left:0; top:16px; width:13px; height:13px; border-radius:50%; background:var(--undp); border:2px solid #fff; }
+  .time-row .b { flex:1; padding:10px 0 14px; }
+  .block { border-radius:10px; padding:10px 16px; font-size:16px; }
+  .block .k { font-size:12px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; }
+  .b-teach { background:var(--tint); border:1px solid #cfe0f1; }
+  .b-teach .k { color:var(--undp); }
+  .b-hands { background:#fff7e8; border:1px solid #f4e2bd; }
+  .b-hands .k { color:#b36b00; }
+  .b-break { background:#f0f2f5; border:1px solid #e1e6ec; color:var(--muted); }
+  .b-frame { background:#fff; border:1px dashed #c9d6ef; }
+  .b-frame .k { color:var(--muted); }
+  .stepcards { display:flex; flex-direction:column; gap:10px; }
+  .stepcard { background:#fff; border:1px solid #e1e8f0; border-left:4px solid var(--undp); border-radius:10px; padding:14px 18px; }
+  .stepcard h4 { margin:0 0 4px; color:var(--undp); font-size:16px; }
+  .stepcard p { margin:0; font-size:15px; color:#33404f; }
+  .grid4 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .part { background:#fff; border:1px solid #e1e8f0; border-radius:12px; padding:16px 18px; }
+  .part .tag { display:inline-block; background:var(--undp); color:#fff; font-size:12px; font-weight:700; padding:3px 10px; border-radius:6px; margin-bottom:8px; }
+  .part h3 { margin:0 0 4px; color:var(--ink); font-size:18px; }
+  .part p { margin:0; font-size:14.5px; color:var(--muted); }
+  .strip { display:flex; flex-wrap:wrap; gap:8px; }
+  .chip { background:#fff; border:1px solid #dbe6f3; border-radius:999px; padding:7px 14px; font-size:14px; }
+  .chip b { color:var(--undp); }
+  .meta-row { display:flex; flex-wrap:wrap; gap:14px; margin-top:8px; }
+  .meta-row .m { background:#fff; border:1px solid #e1e8f0; border-radius:10px; padding:12px 16px; font-size:14px; flex:1; min-width:200px; }
+  .meta-row .m b { color:var(--undp); }
+  footer.foot { margin-top:42px; padding-top:16px; border-top:1px solid #e1e8f0; color:var(--muted); font-size:13px; text-align:center; }
+  @media (max-width:640px){ .obj,.grid4{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <h1>Course Overview</h1>
+      <div class="sub">Agentic Mechanics: Planning &amp; Tool Use &nbsp;&middot;&nbsp; a beginner, hands-on training module</div>
+    </div>
+    <img src="../assets/undp-logo.svg" alt="UNDP">
+  </header>
+
+  <div class="hero">
+    <p>By the end of the day, every learner will have <b>built a small AI agent</b> with their own hands:
+    one that decides what to do, uses tools to do it, checks its own work, and understands every part of how it works.
+    <b>No prior coding required.</b></p>
+  </div>
+
+  <h2 class="sec">What you will be able to do</h2>
+  <div class="obj">
+    <div class="item"><b>1.</b> Explain in plain words what makes a system an agent, and name the steps of the agent loop.</div>
+    <div class="item"><b>2.</b> Describe what a tool is and follow a full tool-use loop, from request to result.</div>
+    <div class="item"><b>3.</b> Describe the main planning patterns and pick one that fits a task.</div>
+    <div class="item"><b>4.</b> Run and lightly modify a small agent that plans, uses tools, and recovers from a mistake.</div>
+    <div class="item"><b>5.</b> Judge when an agent is the right choice, and talk sensibly about cost, safety, and evaluation.</div>
+  </div>
+
+  <h2 class="sec">The schedule</h2>
+  <div class="tabs">
+    <button class="tab active" data-p="full">Full day</button>
+    <button class="tab" data-p="half">Half day</button>
+    <button class="tab" data-p="multi">Multi-session</button>
+  </div>
+
+  <div class="panel active" id="full">
+    <!-- timeline rows -->
+    <div id="fulltl"></div>
+  </div>
+
+  <div class="panel" id="half">
+    <div class="stepcards">
+      <div class="stepcard"><h4>Welcome and a live demo</h4><p>Frame the day and show an agent that plans and uses tools.</p></div>
+      <div class="stepcard"><h4>Part A: Foundations</h4><p>What an agent is, and the loop at its heart.</p></div>
+      <div class="stepcard"><h4>Notebook 0: Setup and first call</h4><p>Open Colab, enter a key, send a first message.</p></div>
+      <div class="stepcard"><h4>Part B: Tool Use</h4><p>How an agent reaches out and does things.</p></div>
+      <div class="stepcard"><h4>Notebook 1: First tool-use loop</h4><p>Give a model a calculator and run the loop.</p></div>
+      <div class="stepcard"><h4>Planning, short</h4><p>Chain of Thought and ReAct only.</p></div>
+      <div class="stepcard"><h4>Concept check (A0)</h4><p>A quick quiz to lock in the ideas.</p></div>
+    </div>
+  </div>
+
+  <div class="panel" id="multi">
+    <div class="stepcards">
+      <div class="stepcard"><h4>Session 1: Foundations and Tool Use</h4><p>Parts A and B, with Notebooks 0 and 1.</p></div>
+      <div class="stepcard"><h4>Session 2: Planning</h4><p>Part C, with Notebook 2 (a planning pattern you can watch think).</p></div>
+      <div class="stepcard"><h4>Session 3: Putting it together</h4><p>Part D, with Notebooks 3 and 4, then the capstone.</p></div>
+      <div class="stepcard"><h4>Between sessions</h4><p>Short readings from the resource library to reinforce each part.</p></div>
+    </div>
+  </div>
+
+  <h2 class="sec">The four parts</h2>
+  <div class="grid4">
+    <div class="part"><span class="tag">Part A</span><h3>Foundations</h3><p>What an agent is, the agent loop, and the four parts every agent shares.</p></div>
+    <div class="part"><span class="tag">Part B</span><h3>Tool Use</h3><p>What a tool is, the tool-use loop, good descriptions, errors, and MCP.</p></div>
+    <div class="part"><span class="tag">Part C</span><h3>Planning</h3><p>Chain of Thought, ReAct, Plan-and-Execute, reflection, and replanning.</p></div>
+    <div class="part"><span class="tag">Part D</span><h3>Putting it together</h3><p>Agent shapes, watching the agent, and cost, speed, and safety.</p></div>
+  </div>
+
+  <h2 class="sec">What you build (notebooks)</h2>
+  <div class="strip">
+    <span class="chip"><b>0</b> &nbsp;Setup and first call</span>
+    <span class="chip"><b>1</b> &nbsp;First tool-use loop</span>
+    <span class="chip"><b>2</b> &nbsp;A planning pattern (ReAct)</span>
+    <span class="chip"><b>3</b> &nbsp;A multi-tool agent</span>
+    <span class="chip"><b>4</b> &nbsp;Reflection and replanning</span>
+    <span class="chip"><b>5</b> &nbsp;Capstone</span>
+  </div>
+
+  <h2 class="sec">Practical details</h2>
+  <div class="meta-row">
+    <div class="m"><b>Audience</b><br>Beginners and non-coders, new to building with AI.</div>
+    <div class="m"><b>Tools</b><br>Google Colab in the browser, and each learner's own Anthropic API key.</div>
+    <div class="m"><b>Assessment</b><br>A concept check, two guided exercises, and a take-home capstone with a rubric.</div>
+  </div>
+
+  <footer class="foot">UNDP Istanbul International Center for Private Sector in Development (IICPSD)
+  &nbsp;&middot;&nbsp; Agentic AI &amp; Vibe Coding &nbsp;&middot;&nbsp; Prepared by Alan Al-Jammoor</footer>
+
+</div>
+
+<script>
+  // Full-day timeline data
+  var full = [
+    ["09:00","frame","Welcome","What you will be able to do by the end of the day."],
+    ["09:20","frame","Hook: live agent demo","An agent that plans and uses tools to solve a real task."],
+    ["09:45","teach","Part A: Foundations","Chatbot vs agent, the agent loop, the anatomy of an agent."],
+    ["10:30","break","Break",""],
+    ["10:45","hands","Notebook 0: Setup and first call","Open Colab, enter your key safely, send a first message."],
+    ["11:15","teach","Part B: Tool Use","Tools, the tool-use loop, good descriptions, errors, MCP."],
+    ["12:15","hands","Notebook 1: First tool-use loop","Give a model a calculator and run the loop by hand."],
+    ["12:45","break","Lunch",""],
+    ["13:45","teach","Part C: Planning","Chain of Thought, ReAct, Plan-and-Execute, reflection, replanning."],
+    ["14:30","hands","Notebook 2: A planning pattern","Build a ReAct loop and watch it think."],
+    ["15:10","break","Break",""],
+    ["15:25","hands","Notebook 3: A multi-tool agent","Give the agent several tools and watch it choose."],
+    ["15:55","teach","Part D: Putting it together","Agent shapes, evaluation, and cost, speed, and safety."],
+    ["16:25","hands","Notebook 4 and capstone kickoff","Reflection and replanning, then introduce the capstone."],
+    ["17:00","frame","Wrap and resource library tour","Where to go next."]
+  ];
+  var kmap = {teach:"teaching", hands:"hands-on", break:"break", frame:""};
+  var html = "";
+  full.forEach(function(r){
+    var k = r[1], label = kmap[k];
+    html += '<div class="time-row">'
+      + '<div class="t">'+r[0]+'</div>'
+      + '<div class="bar"><span class="dot"></span></div>'
+      + '<div class="b"><div class="block b-'+k+'">'
+      + (label ? '<div class="k">'+label+'</div>' : '')
+      + '<div>'+(r[3] ? '<b>'+r[2]+'</b> &middot; '+r[3] : '<b>'+r[2]+'</b>')+'</div>'
+      + '</div></div></div>';
+  });
+  document.getElementById('fulltl').innerHTML = html;
+
+  // Tabs
+  var tabs = document.querySelectorAll('.tab');
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){
+      tabs.forEach(function(x){ x.classList.remove('active'); });
+      t.classList.add('active');
+      document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
+      document.getElementById(t.dataset.p).classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
