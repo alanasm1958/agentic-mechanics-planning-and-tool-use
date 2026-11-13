@@ -1,0 +1,17 @@
+<svg viewBox="0 0 720 460" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif">
+  <rect x="110" y="40" width="500" height="380" rx="18" fill="#ffffff" stroke="#c9d6ef" stroke-width="2"/>
+  <path d="M110,58 a18,18 0 0 1 18,-18 h464 a18,18 0 0 1 18,18 v40 h-500 z" fill="#0063AC"/>
+  <text x="136" y="84" font-size="24" font-weight="700" fill="#ffffff">TOOL CARD</text>
+
+  <text x="136" y="150" font-size="15" font-weight="700" fill="#0063AC" letter-spacing="1">NAME</text>
+  <text x="136" y="182" font-size="26" fill="#1a1a1a">calculator</text>
+  <line x1="136" y1="202" x2="584" y2="202" stroke="#e8eef5" stroke-width="2"/>
+
+  <text x="136" y="238" font-size="15" font-weight="700" fill="#0063AC" letter-spacing="1">DESCRIPTION</text>
+  <text x="136" y="270" font-size="21" fill="#1a1a1a">Do exact arithmetic when the user</text>
+  <text x="136" y="298" font-size="21" fill="#1a1a1a">asks for a calculation.</text>
+  <line x1="136" y1="320" x2="584" y2="320" stroke="#e8eef5" stroke-width="2"/>
+
+  <text x="136" y="356" font-size="15" font-weight="700" fill="#0063AC" letter-spacing="1">INPUTS</text>
+  <text x="136" y="388" font-size="22" fill="#1a1a1a">expression  <tspan fill="#5a6b80" font-size="19">(text)</tspan></text>
+</svg>

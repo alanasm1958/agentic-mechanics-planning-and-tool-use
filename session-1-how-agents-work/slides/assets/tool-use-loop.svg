@@ -1,0 +1,45 @@
+<svg viewBox="0 0 1000 470" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif">
+  <defs>
+    <marker id="t" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#0063AC"/>
+    </marker>
+  </defs>
+
+  <!-- Box 1: Model asks -->
+  <rect x="70" y="60" width="360" height="96" rx="14" fill="#e8f1f8" stroke="#0063AC" stroke-width="2.5"/>
+  <circle cx="108" cy="108" r="18" fill="#ffb020"/>
+  <text x="108" y="114" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+  <text x="140" y="102" font-size="22" font-weight="700" fill="#1a1a1a">Model asks for a tool</text>
+  <text x="140" y="132" font-size="17" fill="#5a6b80">calculator(12 times 37)</text>
+
+  <!-- Box 2: Code runs -->
+  <rect x="570" y="60" width="360" height="96" rx="14" fill="#ffffff" stroke="#0063AC" stroke-width="2.5"/>
+  <circle cx="608" cy="108" r="18" fill="#ffb020"/>
+  <text x="608" y="114" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+  <text x="640" y="102" font-size="22" font-weight="700" fill="#1a1a1a">Your code runs it</text>
+  <text x="640" y="132" font-size="17" fill="#5a6b80">12 times 37 = 444</text>
+
+  <!-- Box 3: Result back -->
+  <rect x="570" y="300" width="360" height="96" rx="14" fill="#ffffff" stroke="#0063AC" stroke-width="2.5"/>
+  <circle cx="608" cy="348" r="18" fill="#ffb020"/>
+  <text x="608" y="354" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+  <text x="640" y="342" font-size="22" font-weight="700" fill="#1a1a1a">Result handed back</text>
+  <text x="640" y="372" font-size="17" fill="#5a6b80">444</text>
+
+  <!-- Box 4: Model continues -->
+  <rect x="70" y="300" width="360" height="96" rx="14" fill="#e8f1f8" stroke="#0063AC" stroke-width="2.5"/>
+  <circle cx="108" cy="348" r="18" fill="#ffb020"/>
+  <text x="108" y="354" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">4</text>
+  <text x="140" y="342" font-size="22" font-weight="700" fill="#1a1a1a">Model continues</text>
+  <text x="140" y="372" font-size="17" fill="#5a6b80">"That is 444."</text>
+
+  <!-- Arrows clockwise -->
+  <line x1="430" y1="108" x2="560" y2="108" stroke="#0063AC" stroke-width="3" marker-end="url(#t)"/>
+  <line x1="750" y1="156" x2="750" y2="292" stroke="#0063AC" stroke-width="3" marker-end="url(#t)"/>
+  <line x1="570" y1="348" x2="434" y2="348" stroke="#0063AC" stroke-width="3" marker-end="url(#t)"/>
+  <line x1="250" y1="300" x2="250" y2="164" stroke="#0063AC" stroke-width="3" marker-end="url(#t)"/>
+
+  <!-- Center note -->
+  <text x="500" y="222" font-size="19" fill="#5a6b80" text-anchor="middle">The model never runs code itself.</text>
+  <text x="500" y="248" font-size="19" fill="#5a6b80" text-anchor="middle">Your code does.</text>
+</svg>
