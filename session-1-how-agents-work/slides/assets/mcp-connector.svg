@@ -1,0 +1,30 @@
+<svg viewBox="0 0 1000 420" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif">
+  <!-- connecting lines (drawn first, behind) -->
+  <line x1="345" y1="205" x2="635" y2="110" stroke="#0063AC" stroke-width="3"/>
+  <line x1="345" y1="205" x2="635" y2="210" stroke="#0063AC" stroke-width="3"/>
+  <line x1="345" y1="205" x2="635" y2="310" stroke="#0063AC" stroke-width="3"/>
+
+  <!-- The tool -->
+  <rect x="70" y="155" width="240" height="100" rx="14" fill="#e8f1f8" stroke="#0063AC" stroke-width="2.5"/>
+  <text x="190" y="195" font-size="22" font-weight="700" fill="#0063AC" text-anchor="middle">YOUR TOOL</text>
+  <text x="190" y="224" font-size="17" fill="#5a6b80" text-anchor="middle">built once</text>
+  <!-- plug on the tool -->
+  <rect x="310" y="188" width="34" height="34" rx="7" fill="#0063AC"/>
+
+  <!-- App A -->
+  <rect x="700" y="70" width="220" height="80" rx="12" fill="#ffffff" stroke="#c9d6ef" stroke-width="2"/>
+  <rect x="630" y="93" width="34" height="34" rx="7" fill="#0063AC"/>
+  <text x="810" y="118" font-size="20" font-weight="600" fill="#1a1a1a" text-anchor="middle">AI app A</text>
+
+  <!-- App B -->
+  <rect x="700" y="170" width="220" height="80" rx="12" fill="#ffffff" stroke="#c9d6ef" stroke-width="2"/>
+  <rect x="630" y="193" width="34" height="34" rx="7" fill="#0063AC"/>
+  <text x="810" y="218" font-size="20" font-weight="600" fill="#1a1a1a" text-anchor="middle">AI app B</text>
+
+  <!-- App C -->
+  <rect x="700" y="270" width="220" height="80" rx="12" fill="#ffffff" stroke="#c9d6ef" stroke-width="2"/>
+  <rect x="630" y="293" width="34" height="34" rx="7" fill="#0063AC"/>
+  <text x="810" y="318" font-size="20" font-weight="600" fill="#1a1a1a" text-anchor="middle">AI app C</text>
+
+  <text x="500" y="392" font-size="19" fill="#5a6b80" text-anchor="middle">MCP is the same plug everywhere. Build a tool once, plug it into any app.</text>
+</svg>

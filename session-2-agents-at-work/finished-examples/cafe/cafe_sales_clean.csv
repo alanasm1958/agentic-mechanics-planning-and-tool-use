@@ -1,0 +1,947 @@
+date,product,category,quantity,unit_price,total
+2026-09-01,Espresso,Hot drinks,15,2.20,33.00
+2026-09-01,Cappuccino,Hot drinks,31,3.50,108.50
+2026-09-01,Latte,Hot drinks,20,3.80,76.00
+2026-09-01,Tea,Hot drinks,15,1.80,27.00
+2026-09-01,Fresh Orange Juice,Cold drinks,9,4.00,36.00
+2026-09-01,Croissant,Bakery,15,2.50,37.50
+2026-09-01,Cheese Pastry,Bakery,13,2.80,36.40
+2026-09-01,Chocolate Cake,Bakery,9,4.50,40.50
+2026-09-01,Chicken Sandwich,Food,10,6.50,65.00
+2026-09-01,Soup of the Day,Food,4,5.00,20.00
+2026-09-02,Espresso,Hot drinks,19,2.20,41.80
+2026-09-02,Cappuccino,Hot drinks,31,3.50,108.50
+2026-09-02,Latte,Hot drinks,21,3.80,79.80
+2026-09-02,Tea,Hot drinks,19,1.80,34.20
+2026-09-02,Fresh Orange Juice,Cold drinks,13,4.00,52.00
+2026-09-02,Croissant,Bakery,25,2.50,62.50
+2026-09-02,Cheese Pastry,Bakery,14,2.80,39.20
+2026-09-02,Chocolate Cake,Bakery,9,4.50,40.50
+2026-09-02,Chicken Sandwich,Food,9,6.50,58.50
+2026-09-02,Soup of the Day,Food,4,5.00,20.00
+2026-09-03,Espresso,Hot drinks,20,2.20,44.00
+2026-09-03,Cappuccino,Hot drinks,25,3.50,87.50
+2026-09-03,Latte,Hot drinks,18,3.80,68.40
+2026-09-03,Tea,Hot drinks,17,1.80,30.60
+2026-09-03,Fresh Orange Juice,Cold drinks,14,4.00,56.00
+2026-09-03,Croissant,Bakery,22,2.50,55.00
+2026-09-03,Cheese Pastry,Bakery,13,2.80,36.40
+2026-09-03,Chocolate Cake,Bakery,10,4.50,45.00
+2026-09-03,Chicken Sandwich,Food,9,6.50,58.50
+2026-09-03,Soup of the Day,Food,3,5.00,15.00
+2026-09-04,Espresso,Hot drinks,26,2.20,57.20
+2026-09-04,Cappuccino,Hot drinks,29,3.50,101.50
+2026-09-04,Latte,Hot drinks,18,3.80,68.40
+2026-09-04,Tea,Hot drinks,22,1.80,39.60
+2026-09-04,Fresh Orange Juice,Cold drinks,15,4.00,60.00
+2026-09-04,Croissant,Bakery,31,2.50,77.50
+2026-09-04,Cheese Pastry,Bakery,20,2.80,56.00
+2026-09-04,Chocolate Cake,Bakery,11,4.50,49.50
+2026-09-04,Chicken Sandwich,Food,12,6.50,78.00
+2026-09-04,Soup of the Day,Food,6,5.00,30.00
+2026-09-05,Espresso,Hot drinks,35,2.20,77.00
+2026-09-05,Cappuccino,Hot drinks,49,3.50,171.50
+2026-09-05,Latte,Hot drinks,24,3.80,91.20
+2026-09-05,Tea,Hot drinks,26,1.80,46.80
+2026-09-05,Fresh Orange Juice,Cold drinks,20,4.00,80.00
+2026-09-05,Croissant,Bakery,27,2.50,67.50
+2026-09-05,Cheese Pastry,Bakery,23,2.80,64.40
+2026-09-05,Chocolate Cake,Bakery,11,4.50,49.50
+2026-09-05,Chicken Sandwich,Food,16,6.50,104.00
+2026-09-05,Soup of the Day,Food,6,5.00,30.00
+2026-09-06,Espresso,Hot drinks,27,2.20,59.40
+2026-09-06,Cappuccino,Hot drinks,39,3.50,136.50
+2026-09-06,Latte,Hot drinks,29,3.80,110.20
+2026-09-06,Tea,Hot drinks,19,1.80,34.20
+2026-09-06,Fresh Orange Juice,Cold drinks,18,4.00,72.00
+2026-09-06,Croissant,Bakery,37,2.50,92.50
+2026-09-06,Cheese Pastry,Bakery,21,2.80,58.80
+2026-09-06,Chocolate Cake,Bakery,13,4.50,58.50
+2026-09-06,Chicken Sandwich,Food,13,6.50,84.50
+2026-09-06,Soup of the Day,Food,7,5.00,35.00
+2026-09-07,Espresso,Hot drinks,20,2.20,44.00
+2026-09-07,Cappuccino,Hot drinks,27,3.50,94.50
+2026-09-07,Latte,Hot drinks,14,3.80,53.20
+2026-09-07,Tea,Hot drinks,11,1.80,19.80
+2026-09-07,Fresh Orange Juice,Cold drinks,10,4.00,40.00
+2026-09-07,Croissant,Bakery,17,2.50,42.50
+2026-09-07,Cheese Pastry,Bakery,16,2.80,44.80
+2026-09-07,Chocolate Cake,Bakery,8,4.50,36.00
+2026-09-07,Chicken Sandwich,Food,10,6.50,65.00
+2026-09-07,Soup of the Day,Food,4,5.00,20.00
+2026-09-08,Espresso,Hot drinks,15,2.20,33.00
+2026-09-08,Cappuccino,Hot drinks,32,3.50,112.00
+2026-09-08,Latte,Hot drinks,15,3.80,57.00
+2026-09-08,Tea,Hot drinks,16,1.80,28.80
+2026-09-08,Fresh Orange Juice,Cold drinks,12,4.00,48.00
+2026-09-08,Croissant,Bakery,17,2.50,42.50
+2026-09-08,Cheese Pastry,Bakery,15,2.80,42.00
+2026-09-08,Chocolate Cake,Bakery,7,4.50,31.50
+2026-09-08,Chicken Sandwich,Food,11,6.50,71.50
+2026-09-08,Soup of the Day,Food,5,5.00,25.00
+2026-09-09,Espresso,Hot drinks,17,2.20,37.40
+2026-09-09,Cappuccino,Hot drinks,29,3.50,101.50
+2026-09-09,Latte,Hot drinks,14,3.80,53.20
+2026-09-09,Tea,Hot drinks,19,1.80,34.20
+2026-09-09,Fresh Orange Juice,Cold drinks,14,4.00,56.00
+2026-09-09,Croissant,Bakery,21,2.50,52.50
+2026-09-09,Cheese Pastry,Bakery,17,2.80,47.60
+2026-09-09,Chocolate Cake,Bakery,10,4.50,45.00
+2026-09-09,Chicken Sandwich,Food,10,6.50,65.00
+2026-09-09,Soup of the Day,Food,5,5.00,25.00
+2026-09-10,Espresso,Hot drinks,19,2.20,41.80
+2026-09-10,Cappuccino,Hot drinks,32,3.50,112.00
+2026-09-10,Latte,Hot drinks,21,3.80,79.80
+2026-09-10,Tea,Hot drinks,15,1.80,27.00
+2026-09-10,Fresh Orange Juice,Cold drinks,14,4.00,56.00
+2026-09-10,Croissant,Bakery,23,2.50,57.50
+2026-09-10,Cheese Pastry,Bakery,14,2.80,39.20
+2026-09-10,Chocolate Cake,Bakery,7,4.50,31.50
+2026-09-10,Chicken Sandwich,Food,10,6.50,65.00
+2026-09-10,Soup of the Day,Food,5,5.00,25.00
+2026-09-11,Espresso,Hot drinks,20,2.20,44.00
+2026-09-11,Cappuccino,Hot drinks,46,3.50,161.00
+2026-09-11,Latte,Hot drinks,18,3.80,68.40
+2026-09-11,Tea,Hot drinks,16,1.80,28.80
+2026-09-11,Fresh Orange Juice,Cold drinks,15,4.00,60.00
+2026-09-11,Croissant,Bakery,25,2.50,62.50
+2026-09-11,Cheese Pastry,Bakery,19,2.80,53.20
+2026-09-11,Chocolate Cake,Bakery,8,4.50,36.00
+2026-09-11,Chicken Sandwich,Food,12,6.50,78.00
+2026-09-11,Soup of the Day,Food,5,5.00,25.00
+2026-09-12,Espresso,Hot drinks,39,2.20,85.80
+2026-09-12,Cappuccino,Hot drinks,56,3.50,196.00
+2026-09-12,Latte,Hot drinks,24,3.80,91.20
+2026-09-12,Tea,Hot drinks,24,1.80,43.20
+2026-09-12,Fresh Orange Juice,Cold drinks,17,4.00,68.00
+2026-09-12,Croissant,Bakery,41,2.50,102.50
+2026-09-12,Cheese Pastry,Bakery,22,2.80,61.60
+2026-09-12,Chocolate Cake,Bakery,15,4.50,67.50
+2026-09-12,Chicken Sandwich,Food,20,6.50,130.00
+2026-09-12,Soup of the Day,Food,7,5.00,35.00
+2026-09-13,Espresso,Hot drinks,28,2.20,61.60
+2026-09-13,Cappuccino,Hot drinks,42,3.50,147.00
+2026-09-13,Latte,Hot drinks,28,3.80,106.40
+2026-09-13,Tea,Hot drinks,27,1.80,48.60
+2026-09-13,Fresh Orange Juice,Cold drinks,15,4.00,60.00
+2026-09-13,Croissant,Bakery,23,2.50,57.50
+2026-09-13,Cheese Pastry,Bakery,21,2.80,58.80
+2026-09-13,Chocolate Cake,Bakery,13,4.50,58.50
+2026-09-13,Chicken Sandwich,Food,17,6.50,110.50
+2026-09-13,Soup of the Day,Food,7,5.00,35.00
+2026-09-14,Espresso,Hot drinks,16,2.20,35.20
+2026-09-14,Cappuccino,Hot drinks,31,3.50,108.50
+2026-09-14,Latte,Hot drinks,20,3.80,76.00
+2026-09-14,Tea,Hot drinks,16,1.80,28.80
+2026-09-14,Fresh Orange Juice,Cold drinks,10,4.00,40.00
+2026-09-14,Croissant,Bakery,15,2.50,37.50
+2026-09-14,Cheese Pastry,Bakery,14,2.80,39.20
+2026-09-14,Chocolate Cake,Bakery,8,4.50,36.00
+2026-09-14,Chicken Sandwich,Food,11,6.50,71.50
+2026-09-14,Soup of the Day,Food,4,5.00,20.00
+2026-09-15,Espresso,Hot drinks,16,2.20,35.20
+2026-09-15,Cappuccino,Hot drinks,26,3.50,91.00
+2026-09-15,Latte,Hot drinks,19,3.80,72.20
+2026-09-15,Tea,Hot drinks,12,1.80,21.60
+2026-09-15,Fresh Orange Juice,Cold drinks,10,4.00,40.00
+2026-09-15,Croissant,Bakery,25,2.50,62.50
+2026-09-15,Cheese Pastry,Bakery,14,2.80,39.20
+2026-09-15,Chocolate Cake,Bakery,9,4.50,40.50
+2026-09-15,Chicken Sandwich,Food,10,6.50,65.00
+2026-09-15,Soup of the Day,Food,6,5.00,30.00
+2026-09-16,Espresso,Hot drinks,18,2.20,39.60
+2026-09-16,Cappuccino,Hot drinks,26,3.50,91.00
+2026-09-16,Latte,Hot drinks,21,3.80,79.80
+2026-09-16,Tea,Hot drinks,14,1.80,25.20
+2026-09-16,Fresh Orange Juice,Cold drinks,9,4.00,36.00
+2026-09-16,Croissant,Bakery,18,2.50,45.00
+2026-09-16,Cheese Pastry,Bakery,14,2.80,39.20
+2026-09-16,Chocolate Cake,Bakery,7,4.50,31.50
+2026-09-16,Chicken Sandwich,Food,11,6.50,71.50
+2026-09-16,Soup of the Day,Food,5,5.00,25.00
+2026-09-17,Espresso,Hot drinks,17,2.20,37.40
+2026-09-17,Cappuccino,Hot drinks,27,3.50,94.50
+2026-09-17,Latte,Hot drinks,18,3.80,68.40
+2026-09-17,Tea,Hot drinks,15,1.80,27.00
+2026-09-17,Fresh Orange Juice,Cold drinks,11,4.00,44.00
+2026-09-17,Croissant,Bakery,27,2.50,67.50
+2026-09-17,Cheese Pastry,Bakery,19,2.80,53.20
+2026-09-17,Chocolate Cake,Bakery,7,4.50,31.50
+2026-09-17,Chicken Sandwich,Food,12,6.50,78.00
+2026-09-17,Soup of the Day,Food,5,5.00,25.00
+2026-09-18,Espresso,Hot drinks,22,2.20,48.40
+2026-09-18,Cappuccino,Hot drinks,38,3.50,133.00
+2026-09-18,Latte,Hot drinks,27,3.80,102.60
+2026-09-18,Tea,Hot drinks,17,1.80,30.60
+2026-09-18,Fresh Orange Juice,Cold drinks,13,4.00,52.00
+2026-09-18,Croissant,Bakery,24,2.50,60.00
+2026-09-18,Cheese Pastry,Bakery,17,2.80,47.60
+2026-09-18,Chocolate Cake,Bakery,11,4.50,49.50
+2026-09-18,Chicken Sandwich,Food,10,6.50,65.00
+2026-09-18,Soup of the Day,Food,6,5.00,30.00
+2026-09-19,Espresso,Hot drinks,24,2.20,52.80
+2026-09-19,Cappuccino,Hot drinks,47,3.50,164.50
+2026-09-19,Latte,Hot drinks,22,3.80,83.60
+2026-09-19,Tea,Hot drinks,29,1.80,52.20
+2026-09-19,Fresh Orange Juice,Cold drinks,20,4.00,80.00
+2026-09-19,Croissant,Bakery,32,2.50,80.00
+2026-09-19,Cheese Pastry,Bakery,20,2.80,56.00
+2026-09-19,Chocolate Cake,Bakery,11,4.50,49.50
+2026-09-19,Chicken Sandwich,Food,18,6.50,117.00
+2026-09-19,Soup of the Day,Food,10,5.00,50.00
+2026-09-20,Espresso,Hot drinks,28,2.20,61.60
+2026-09-20,Cappuccino,Hot drinks,39,3.50,136.50
+2026-09-20,Latte,Hot drinks,19,3.80,72.20
+2026-09-20,Tea,Hot drinks,23,1.80,41.40
+2026-09-20,Fresh Orange Juice,Cold drinks,12,4.00,48.00
+2026-09-20,Croissant,Bakery,35,2.50,87.50
+2026-09-20,Cheese Pastry,Bakery,17,2.80,47.60
+2026-09-20,Chocolate Cake,Bakery,11,4.50,49.50
+2026-09-20,Chicken Sandwich,Food,13,6.50,84.50
+2026-09-20,Soup of the Day,Food,10,5.00,50.00
+2026-09-21,Espresso,Hot drinks,21,2.20,46.20
+2026-09-21,Cappuccino,Hot drinks,29,3.50,101.50
+2026-09-21,Latte,Hot drinks,17,3.80,64.60
+2026-09-21,Tea,Hot drinks,15,1.80,27.00
+2026-09-21,Fresh Orange Juice,Cold drinks,12,4.00,48.00
+2026-09-21,Croissant,Bakery,16,2.50,40.00
+2026-09-21,Cheese Pastry,Bakery,13,2.80,36.40
+2026-09-21,Chocolate Cake,Bakery,6,4.50,27.00
+2026-09-21,Chicken Sandwich,Food,8,6.50,52.00
+2026-09-21,Soup of the Day,Food,6,5.00,30.00
+2026-09-23,Espresso,Hot drinks,19,2.20,41.80
+2026-09-23,Cappuccino,Hot drinks,38,3.50,133.00
+2026-09-23,Latte,Hot drinks,21,3.80,79.80
+2026-09-23,Tea,Hot drinks,14,1.80,25.20
+2026-09-23,Fresh Orange Juice,Cold drinks,8,4.00,32.00
+2026-09-23,Croissant,Bakery,23,2.50,57.50
+2026-09-23,Cheese Pastry,Bakery,11,2.80,30.80
+2026-09-23,Chocolate Cake,Bakery,7,4.50,31.50
+2026-09-23,Chicken Sandwich,Food,12,6.50,78.00
+2026-09-23,Soup of the Day,Food,5,5.00,25.00
+2026-09-24,Espresso,Hot drinks,23,2.20,50.60
+2026-09-24,Cappuccino,Hot drinks,36,3.50,126.00
+2026-09-24,Latte,Hot drinks,23,3.80,87.40
+2026-09-24,Tea,Hot drinks,18,1.80,32.40
+2026-09-24,Fresh Orange Juice,Cold drinks,11,4.00,44.00
+2026-09-24,Croissant,Bakery,28,2.50,70.00
+2026-09-24,Cheese Pastry,Bakery,15,2.80,42.00
+2026-09-24,Chocolate Cake,Bakery,10,4.50,45.00
+2026-09-24,Chicken Sandwich,Food,13,6.50,84.50
+2026-09-24,Soup of the Day,Food,7,5.00,35.00
+2026-09-25,Espresso,Hot drinks,19,2.20,41.80
+2026-09-25,Cappuccino,Hot drinks,41,3.50,143.50
+2026-09-25,Latte,Hot drinks,18,3.80,68.40
+2026-09-25,Tea,Hot drinks,21,1.80,37.80
+2026-09-25,Fresh Orange Juice,Cold drinks,14,4.00,56.00
+2026-09-25,Croissant,Bakery,33,2.50,82.50
+2026-09-25,Cheese Pastry,Bakery,15,2.80,42.00
+2026-09-25,Chocolate Cake,Bakery,8,4.50,36.00
+2026-09-25,Chicken Sandwich,Food,13,6.50,84.50
+2026-09-25,Soup of the Day,Food,9,5.00,45.00
+2026-09-26,Espresso,Hot drinks,29,2.20,63.80
+2026-09-26,Cappuccino,Hot drinks,61,3.50,213.50
+2026-09-26,Latte,Hot drinks,29,3.80,110.20
+2026-09-26,Tea,Hot drinks,22,1.80,39.60
+2026-09-26,Fresh Orange Juice,Cold drinks,17,4.00,68.00
+2026-09-26,Croissant,Bakery,36,2.50,90.00
+2026-09-26,Cheese Pastry,Bakery,19,2.80,53.20
+2026-09-26,Chocolate Cake,Bakery,12,4.50,54.00
+2026-09-26,Chicken Sandwich,Food,16,6.50,104.00
+2026-09-26,Soup of the Day,Food,10,5.00,50.00
+2026-09-27,Espresso,Hot drinks,29,2.20,63.80
+2026-09-27,Cappuccino,Hot drinks,38,3.50,133.00
+2026-09-27,Latte,Hot drinks,27,3.80,102.60
+2026-09-27,Tea,Hot drinks,24,1.80,43.20
+2026-09-27,Fresh Orange Juice,Cold drinks,18,4.00,72.00
+2026-09-27,Croissant,Bakery,24,2.50,60.00
+2026-09-27,Cheese Pastry,Bakery,25,2.80,70.00
+2026-09-27,Chocolate Cake,Bakery,13,4.50,58.50
+2026-09-27,Chicken Sandwich,Food,12,6.50,78.00
+2026-09-27,Soup of the Day,Food,10,5.00,50.00
+2026-09-28,Espresso,Hot drinks,20,2.20,44.00
+2026-09-28,Cappuccino,Hot drinks,29,3.50,101.50
+2026-09-28,Latte,Hot drinks,14,3.80,53.20
+2026-09-28,Tea,Hot drinks,11,1.80,19.80
+2026-09-28,Fresh Orange Juice,Cold drinks,10,4.00,40.00
+2026-09-28,Croissant,Bakery,22,2.50,55.00
+2026-09-28,Cheese Pastry,Bakery,12,2.80,33.60
+2026-09-28,Chocolate Cake,Bakery,6,4.50,27.00
+2026-09-28,Chicken Sandwich,Food,9,6.50,58.50
+2026-09-28,Soup of the Day,Food,5,5.00,25.00
+2026-09-29,Espresso,Hot drinks,18,2.20,39.60
+2026-09-29,Cappuccino,Hot drinks,28,3.50,98.00
+2026-09-29,Latte,Hot drinks,21,3.80,79.80
+2026-09-29,Tea,Hot drinks,18,1.80,32.40
+2026-09-29,Fresh Orange Juice,Cold drinks,11,4.00,44.00
+2026-09-29,Croissant,Bakery,22,2.50,55.00
+2026-09-29,Cheese Pastry,Bakery,17,2.80,47.60
+2026-09-29,Chocolate Cake,Bakery,8,4.50,36.00
+2026-09-29,Chicken Sandwich,Food,10,6.50,65.00
+2026-09-29,Soup of the Day,Food,5,5.00,25.00
+2026-09-30,Espresso,Hot drinks,15,2.20,33.00
+2026-09-30,Cappuccino,Hot drinks,35,3.50,122.50
+2026-09-30,Latte,Hot drinks,16,3.80,60.80
+2026-09-30,Tea,Hot drinks,12,1.80,21.60
+2026-09-30,Fresh Orange Juice,Cold drinks,8,4.00,32.00
+2026-09-30,Croissant,Bakery,22,2.50,55.00
+2026-09-30,Cheese Pastry,Bakery,15,2.80,42.00
+2026-09-30,Chocolate Cake,Bakery,10,4.50,45.00
+2026-09-30,Chicken Sandwich,Food,12,6.50,78.00
+2026-09-30,Soup of the Day,Food,6,5.00,30.00
+2026-10-01,Espresso,Hot drinks,23,2.20,50.60
+2026-10-01,Cappuccino,Hot drinks,33,3.50,115.50
+2026-10-01,Latte,Hot drinks,18,3.80,68.40
+2026-10-01,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-10-01,Tea,Hot drinks,14,1.80,25.20
+2026-10-01,Fresh Orange Juice,Cold drinks,9,4.00,36.00
+2026-10-01,Croissant,Bakery,24,2.50,60.00
+2026-10-01,Cheese Pastry,Bakery,17,2.80,47.60
+2026-10-01,Chocolate Cake,Bakery,7,4.50,31.50
+2026-10-01,Chicken Sandwich,Food,10,6.50,65.00
+2026-10-01,Soup of the Day,Food,6,5.00,30.00
+2026-10-02,Espresso,Hot drinks,29,2.20,63.80
+2026-10-02,Cappuccino,Hot drinks,33,3.50,115.50
+2026-10-02,Latte,Hot drinks,18,3.80,68.40
+2026-10-02,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-10-02,Tea,Hot drinks,22,1.80,39.60
+2026-10-02,Fresh Orange Juice,Cold drinks,12,4.00,48.00
+2026-10-02,Croissant,Bakery,27,2.50,67.50
+2026-10-02,Cheese Pastry,Bakery,19,2.80,53.20
+2026-10-02,Chocolate Cake,Bakery,12,4.50,54.00
+2026-10-02,Chicken Sandwich,Food,11,6.50,71.50
+2026-10-02,Soup of the Day,Food,8,5.00,40.00
+2026-10-03,Espresso,Hot drinks,39,2.20,85.80
+2026-10-03,Cappuccino,Hot drinks,59,3.50,206.50
+2026-10-03,Latte,Hot drinks,25,3.80,95.00
+2026-10-03,Matcha Latte,Hot drinks,2,4.80,9.60
+2026-10-03,Tea,Hot drinks,23,1.80,41.40
+2026-10-03,Fresh Orange Juice,Cold drinks,15,4.00,60.00
+2026-10-03,Croissant,Bakery,42,2.50,105.00
+2026-10-03,Cheese Pastry,Bakery,18,2.80,50.40
+2026-10-03,Chocolate Cake,Bakery,15,4.50,67.50
+2026-10-03,Chicken Sandwich,Food,15,6.50,97.50
+2026-10-03,Soup of the Day,Food,15,5.00,75.00
+2026-10-04,Espresso,Hot drinks,23,2.20,50.60
+2026-10-04,Cappuccino,Hot drinks,39,3.50,136.50
+2026-10-04,Latte,Hot drinks,27,3.80,102.60
+2026-10-04,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-10-04,Tea,Hot drinks,24,1.80,43.20
+2026-10-04,Fresh Orange Juice,Cold drinks,12,4.00,48.00
+2026-10-04,Croissant,Bakery,37,2.50,92.50
+2026-10-04,Cheese Pastry,Bakery,21,2.80,58.80
+2026-10-04,Chocolate Cake,Bakery,14,4.50,63.00
+2026-10-04,Chicken Sandwich,Food,15,6.50,97.50
+2026-10-04,Soup of the Day,Food,13,5.00,65.00
+2026-10-05,Espresso,Hot drinks,17,2.20,37.40
+2026-10-05,Cappuccino,Hot drinks,32,3.50,112.00
+2026-10-05,Latte,Hot drinks,20,3.80,76.00
+2026-10-05,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-10-05,Tea,Hot drinks,15,1.80,27.00
+2026-10-05,Fresh Orange Juice,Cold drinks,8,4.00,32.00
+2026-10-05,Croissant,Bakery,23,2.50,57.50
+2026-10-05,Chocolate Cake,Bakery,8,4.50,36.00
+2026-10-05,Chicken Sandwich,Food,9,6.50,58.50
+2026-10-05,Soup of the Day,Food,8,5.00,40.00
+2026-10-06,Espresso,Hot drinks,21,2.20,46.20
+2026-10-06,Cappuccino,Hot drinks,33,3.50,115.50
+2026-10-06,Latte,Hot drinks,18,3.80,68.40
+2026-10-06,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-10-06,Tea,Hot drinks,16,1.80,28.80
+2026-10-06,Fresh Orange Juice,Cold drinks,8,4.00,32.00
+2026-10-06,Croissant,Bakery,18,2.50,45.00
+2026-10-06,Cheese Pastry,Bakery,13,2.80,36.40
+2026-10-06,Chocolate Cake,Bakery,9,4.50,40.50
+2026-10-06,Chicken Sandwich,Food,8,6.50,52.00
+2026-10-06,Soup of the Day,Food,9,5.00,45.00
+2026-10-07,Espresso,Hot drinks,22,2.20,48.40
+2026-10-07,Cappuccino,Hot drinks,25,3.50,87.50
+2026-10-07,Latte,Hot drinks,17,3.80,64.60
+2026-10-07,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-10-07,Tea,Hot drinks,16,1.80,28.80
+2026-10-07,Fresh Orange Juice,Cold drinks,11,4.00,44.00
+2026-10-07,Croissant,Bakery,25,2.50,62.50
+2026-10-07,Cheese Pastry,Bakery,13,2.80,36.40
+2026-10-07,Chocolate Cake,Bakery,8,4.50,36.00
+2026-10-07,Chicken Sandwich,Food,12,6.50,78.00
+2026-10-07,Soup of the Day,Food,7,5.00,35.00
+2026-10-08,Espresso,Hot drinks,19,2.20,41.80
+2026-10-08,Cappuccino,Hot drinks,28,3.50,98.00
+2026-10-08,Latte,Hot drinks,18,3.80,68.40
+2026-10-08,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-10-08,Tea,Hot drinks,20,1.80,36.00
+2026-10-08,Fresh Orange Juice,Cold drinks,8,4.00,32.00
+2026-10-08,Croissant,Bakery,25,2.50,62.50
+2026-10-08,Cheese Pastry,Bakery,12,2.80,33.60
+2026-10-08,Chocolate Cake,Bakery,10,4.50,45.00
+2026-10-08,Chicken Sandwich,Food,11,6.50,71.50
+2026-10-08,Soup of the Day,Food,8,5.00,40.00
+2026-10-09,Espresso,Hot drinks,28,2.20,61.60
+2026-10-09,Cappuccino,Hot drinks,29,3.50,101.50
+2026-10-09,Latte,Hot drinks,25,3.80,95.00
+2026-10-09,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-10-09,Tea,Hot drinks,23,1.80,41.40
+2026-10-09,Fresh Orange Juice,Cold drinks,13,4.00,52.00
+2026-10-09,Croissant,Bakery,22,2.50,55.00
+2026-10-09,Cheese Pastry,Bakery,17,2.80,47.60
+2026-10-09,Chocolate Cake,Bakery,9,4.50,40.50
+2026-10-09,Chicken Sandwich,Food,14,6.50,91.00
+2026-10-09,Soup of the Day,Food,9,5.00,45.00
+2026-10-10,Espresso,Hot drinks,35,2.20,77.00
+2026-10-10,Cappuccino,Hot drinks,53,3.50,185.50
+2026-10-10,Latte,Hot drinks,30,3.80,114.00
+2026-10-10,Matcha Latte,Hot drinks,2,4.80,9.60
+2026-10-10,Tea,Hot drinks,21,1.80,37.80
+2026-10-10,Fresh Orange Juice,Cold drinks,14,4.00,56.00
+2026-10-10,Croissant,Bakery,33,2.50,82.50
+2026-10-10,Cheese Pastry,Bakery,26,2.80,72.80
+2026-10-10,Chocolate Cake,Bakery,13,4.50,58.50
+2026-10-10,Chicken Sandwich,Food,19,6.50,123.50
+2026-10-10,Soup of the Day,Food,12,5.00,60.00
+2026-10-11,Espresso,Hot drinks,21,2.20,46.20
+2026-10-11,Cappuccino,Hot drinks,53,3.50,185.50
+2026-10-11,Latte,Hot drinks,21,3.80,79.80
+2026-10-11,Matcha Latte,Hot drinks,2,4.80,9.60
+2026-10-11,Tea,Hot drinks,26,1.80,46.80
+2026-10-11,Fresh Orange Juice,Cold drinks,10,4.00,40.00
+2026-10-11,Croissant,Bakery,24,2.50,60.00
+2026-10-11,Cheese Pastry,Bakery,25,2.80,70.00
+2026-10-11,Chocolate Cake,Bakery,13,4.50,58.50
+2026-10-11,Chicken Sandwich,Food,12,6.50,78.00
+2026-10-11,Soup of the Day,Food,14,5.00,70.00
+2026-10-12,Espresso,Hot drinks,15,2.20,33.00
+2026-10-12,Cappuccino,Hot drinks,22,3.50,77.00
+2026-10-12,Latte,Hot drinks,19,3.80,72.20
+2026-10-12,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-10-12,Tea,Hot drinks,13,1.80,23.40
+2026-10-12,Fresh Orange Juice,Cold drinks,9,4.00,36.00
+2026-10-12,Croissant,Bakery,17,2.50,42.50
+2026-10-12,Cheese Pastry,Bakery,16,2.80,44.80
+2026-10-12,Chocolate Cake,Bakery,8,4.50,36.00
+2026-10-12,Chicken Sandwich,Food,12,6.50,78.00
+2026-10-12,Soup of the Day,Food,10,5.00,50.00
+2026-10-13,Espresso,Hot drinks,17,2.20,37.40
+2026-10-13,Cappuccino,Hot drinks,34,3.50,119.00
+2026-10-13,Latte,Hot drinks,19,3.80,72.20
+2026-10-13,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-10-13,Tea,Hot drinks,14,1.80,25.20
+2026-10-13,Fresh Orange Juice,Cold drinks,10,4.00,40.00
+2026-10-13,Croissant,Bakery,18,2.50,45.00
+2026-10-13,Cheese Pastry,Bakery,12,2.80,33.60
+2026-10-13,Chocolate Cake,Bakery,8,4.50,36.00
+2026-10-13,Chicken Sandwich,Food,9,6.50,58.50
+2026-10-13,Soup of the Day,Food,11,5.00,55.00
+2026-10-14,Espresso,Hot drinks,17,2.20,37.40
+2026-10-14,Cappuccino,Hot drinks,26,3.50,91.00
+2026-10-14,Latte,Hot drinks,14,3.80,53.20
+2026-10-14,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-10-14,Tea,Hot drinks,15,1.80,27.00
+2026-10-14,Fresh Orange Juice,Cold drinks,9,4.00,36.00
+2026-10-14,Croissant,Bakery,21,2.50,52.50
+2026-10-14,Cheese Pastry,Bakery,17,2.80,47.60
+2026-10-14,Chocolate Cake,Bakery,8,4.50,36.00
+2026-10-14,Chicken Sandwich,Food,10,6.50,65.00
+2026-10-14,Soup of the Day,Food,8,5.00,40.00
+2026-10-15,Espresso,Hot drinks,20,2.20,44.00
+2026-10-15,Cappuccino,Hot drinks,33,3.50,115.50
+2026-10-15,Latte,Hot drinks,19,3.80,72.20
+2026-10-15,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-10-15,Tea,Hot drinks,19,1.80,34.20
+2026-10-15,Fresh Orange Juice,Cold drinks,11,4.00,44.00
+2026-10-15,Croissant,Bakery,17,2.50,42.50
+2026-10-15,Cheese Pastry,Bakery,19,2.80,53.20
+2026-10-15,Chocolate Cake,Bakery,8,4.50,36.00
+2026-10-15,Chicken Sandwich,Food,9,6.50,58.50
+2026-10-15,Soup of the Day,Food,12,5.00,60.00
+2026-10-16,Espresso,Hot drinks,21,2.20,46.20
+2026-10-16,Cappuccino,Hot drinks,45,3.50,157.50
+2026-10-16,Latte,Hot drinks,20,3.80,76.00
+2026-10-16,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-10-16,Tea,Hot drinks,18,1.80,32.40
+2026-10-16,Fresh Orange Juice,Cold drinks,14,4.00,56.00
+2026-10-16,Croissant,Bakery,31,2.50,77.50
+2026-10-16,Cheese Pastry,Bakery,18,2.80,50.40
+2026-10-16,Chocolate Cake,Bakery,11,4.50,49.50
+2026-10-16,Chicken Sandwich,Food,11,6.50,71.50
+2026-10-16,Soup of the Day,Food,11,5.00,55.00
+2026-10-17,Espresso,Hot drinks,36,2.20,79.20
+2026-10-17,Cappuccino,Hot drinks,53,3.50,185.50
+2026-10-17,Latte,Hot drinks,29,3.80,110.20
+2026-10-17,Matcha Latte,Hot drinks,2,4.80,9.60
+2026-10-17,Tea,Hot drinks,27,1.80,48.60
+2026-10-17,Fresh Orange Juice,Cold drinks,12,4.00,48.00
+2026-10-17,Croissant,Bakery,29,2.50,72.50
+2026-10-17,Cheese Pastry,Bakery,21,2.80,58.80
+2026-10-17,Chocolate Cake,Bakery,16,4.50,72.00
+2026-10-17,Chicken Sandwich,Food,21,6.50,136.50
+2026-10-17,Soup of the Day,Food,18,5.00,90.00
+2026-10-18,Espresso,Hot drinks,22,2.20,48.40
+2026-10-18,Cappuccino,Hot drinks,49,3.50,171.50
+2026-10-18,Latte,Hot drinks,26,3.80,98.80
+2026-10-18,Matcha Latte,Hot drinks,2,4.80,9.60
+2026-10-18,Tea,Hot drinks,25,1.80,45.00
+2026-10-18,Fresh Orange Juice,Cold drinks,12,4.00,48.00
+2026-10-18,Croissant,Bakery,29,2.50,72.50
+2026-10-18,Cheese Pastry,Bakery,22,2.80,61.60
+2026-10-18,Chocolate Cake,Bakery,14,4.50,63.00
+2026-10-18,Chicken Sandwich,Food,19,6.50,123.50
+2026-10-18,Soup of the Day,Food,15,5.00,75.00
+2026-10-19,Espresso,Hot drinks,18,2.20,39.60
+2026-10-19,Cappuccino,Hot drinks,31,3.50,108.50
+2026-10-19,Latte,Hot drinks,16,3.80,60.80
+2026-10-19,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-10-19,Tea,Hot drinks,13,1.80,23.40
+2026-10-19,Fresh Orange Juice,Cold drinks,7,4.00,28.00
+2026-10-19,Croissant,Bakery,21,2.50,52.50
+2026-10-19,Cheese Pastry,Bakery,12,2.80,33.60
+2026-10-19,Chocolate Cake,Bakery,6,4.50,27.00
+2026-10-19,Chicken Sandwich,Food,7,6.50,45.50
+2026-10-19,Soup of the Day,Food,7,5.00,35.00
+2026-10-20,Espresso,Hot drinks,21,2.20,46.20
+2026-10-20,Cappuccino,Hot drinks,36,3.50,126.00
+2026-10-20,Latte,Hot drinks,15,3.80,57.00
+2026-10-20,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-10-20,Tea,Hot drinks,14,1.80,25.20
+2026-10-20,Fresh Orange Juice,Cold drinks,8,4.00,32.00
+2026-10-20,Croissant,Bakery,22,2.50,55.00
+2026-10-20,Cheese Pastry,Bakery,12,2.80,33.60
+2026-10-20,Chocolate Cake,Bakery,9,4.50,40.50
+2026-10-20,Chicken Sandwich,Food,9,6.50,58.50
+2026-10-20,Soup of the Day,Food,11,5.00,55.00
+2026-10-21,Espresso,Hot drinks,16,2.20,35.20
+2026-10-21,Latte,Hot drinks,19,3.80,72.20
+2026-10-21,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-10-21,Tea,Hot drinks,20,1.80,36.00
+2026-10-21,Fresh Orange Juice,Cold drinks,10,4.00,40.00
+2026-10-21,Croissant,Bakery,27,2.50,67.50
+2026-10-21,Cheese Pastry,Bakery,17,2.80,47.60
+2026-10-21,Chocolate Cake,Bakery,7,4.50,31.50
+2026-10-21,Chicken Sandwich,Food,12,6.50,78.00
+2026-10-21,Soup of the Day,Food,13,5.00,65.00
+2026-10-22,Espresso,Hot drinks,24,2.20,52.80
+2026-10-22,Cappuccino,Hot drinks,39,3.50,136.50
+2026-10-22,Latte,Hot drinks,19,3.80,72.20
+2026-10-22,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-10-22,Tea,Hot drinks,17,1.80,30.60
+2026-10-22,Fresh Orange Juice,Cold drinks,10,4.00,40.00
+2026-10-22,Croissant,Bakery,23,2.50,57.50
+2026-10-22,Cheese Pastry,Bakery,14,2.80,39.20
+2026-10-22,Chocolate Cake,Bakery,10,4.50,45.00
+2026-10-22,Chicken Sandwich,Food,12,6.50,78.00
+2026-10-22,Soup of the Day,Food,11,5.00,55.00
+2026-10-23,Espresso,Hot drinks,28,2.20,61.60
+2026-10-23,Cappuccino,Hot drinks,38,3.50,133.00
+2026-10-23,Latte,Hot drinks,17,3.80,64.60
+2026-10-23,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-10-23,Tea,Hot drinks,20,1.80,36.00
+2026-10-23,Fresh Orange Juice,Cold drinks,13,4.00,52.00
+2026-10-23,Croissant,Bakery,26,2.50,65.00
+2026-10-23,Cheese Pastry,Bakery,17,2.80,47.60
+2026-10-23,Chocolate Cake,Bakery,11,4.50,49.50
+2026-10-23,Chicken Sandwich,Food,10,6.50,65.00
+2026-10-23,Soup of the Day,Food,11,5.00,55.00
+2026-10-24,Espresso,Hot drinks,39,2.20,85.80
+2026-10-24,Cappuccino,Hot drinks,61,3.50,213.50
+2026-10-24,Latte,Hot drinks,23,3.80,87.40
+2026-10-24,Matcha Latte,Hot drinks,2,4.80,9.60
+2026-10-24,Tea,Hot drinks,25,1.80,45.00
+2026-10-24,Fresh Orange Juice,Cold drinks,14,4.00,56.00
+2026-10-24,Croissant,Bakery,43,2.50,107.50
+2026-10-24,Cheese Pastry,Bakery,19,2.80,53.20
+2026-10-24,Chocolate Cake,Bakery,16,4.50,72.00
+2026-10-24,Chicken Sandwich,Food,15,6.50,97.50
+2026-10-24,Soup of the Day,Food,16,5.00,80.00
+2026-10-25,Espresso,Hot drinks,34,2.20,74.80
+2026-10-25,Cappuccino,Hot drinks,50,3.50,175.00
+2026-10-25,Latte,Hot drinks,30,3.80,114.00
+2026-10-25,Matcha Latte,Hot drinks,2,4.80,9.60
+2026-10-25,Tea,Hot drinks,24,1.80,43.20
+2026-10-25,Fresh Orange Juice,Cold drinks,11,4.00,44.00
+2026-10-25,Croissant,Bakery,28,2.50,70.00
+2026-10-25,Cheese Pastry,Bakery,16,2.80,44.80
+2026-10-25,Chocolate Cake,Bakery,9,4.50,40.50
+2026-10-25,Chicken Sandwich,Food,14,6.50,91.00
+2026-10-25,Soup of the Day,Food,15,5.00,75.00
+2026-10-26,Espresso,Hot drinks,17,2.20,37.40
+2026-10-26,Cappuccino,Hot drinks,28,3.50,98.00
+2026-10-26,Latte,Hot drinks,14,3.80,53.20
+2026-10-26,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-10-26,Tea,Hot drinks,18,1.80,32.40
+2026-10-26,Fresh Orange Juice,Cold drinks,6,4.00,24.00
+2026-10-26,Croissant,Bakery,22,2.50,55.00
+2026-10-26,Cheese Pastry,Bakery,12,2.80,33.60
+2026-10-26,Chocolate Cake,Bakery,8,4.50,36.00
+2026-10-26,Chicken Sandwich,Food,9,6.50,58.50
+2026-10-26,Soup of the Day,Food,10,5.00,50.00
+2026-10-27,Espresso,Hot drinks,21,2.20,46.20
+2026-10-27,Cappuccino,Hot drinks,32,3.50,112.00
+2026-10-27,Latte,Hot drinks,20,3.80,76.00
+2026-10-27,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-10-27,Tea,Hot drinks,14,1.80,25.20
+2026-10-27,Fresh Orange Juice,Cold drinks,7,4.00,28.00
+2026-10-27,Croissant,Bakery,20,2.50,50.00
+2026-10-27,Cheese Pastry,Bakery,14,2.80,39.20
+2026-10-27,Chocolate Cake,Bakery,8,4.50,36.00
+2026-10-27,Chicken Sandwich,Food,11,6.50,71.50
+2026-10-27,Soup of the Day,Food,12,5.00,60.00
+2026-10-28,Espresso,Hot drinks,19,2.20,41.80
+2026-10-28,Cappuccino,Hot drinks,31,3.50,108.50
+2026-10-28,Latte,Hot drinks,14,3.80,53.20
+2026-10-28,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-10-28,Tea,Hot drinks,14,1.80,25.20
+2026-10-28,Fresh Orange Juice,Cold drinks,7,4.00,28.00
+2026-10-28,Croissant,Bakery,25,2.50,62.50
+2026-10-28,Cheese Pastry,Bakery,13,2.80,36.40
+2026-10-28,Chocolate Cake,Bakery,7,4.50,31.50
+2026-10-28,Chicken Sandwich,Food,10,6.50,65.00
+2026-10-28,Soup of the Day,Food,10,5.00,50.00
+2026-10-29,Espresso,Hot drinks,20,2.20,44.00
+2026-10-29,Cappuccino,Hot drinks,25,3.50,87.50
+2026-10-29,Latte,Hot drinks,15,3.80,57.00
+2026-10-29,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-10-29,Tea,Hot drinks,21,1.80,37.80
+2026-10-29,Fresh Orange Juice,Cold drinks,8,4.00,32.00
+2026-10-29,Croissant,Bakery,26,2.50,65.00
+2026-10-29,Cheese Pastry,Bakery,19,2.80,53.20
+2026-10-29,Chocolate Cake,Bakery,9,4.50,40.50
+2026-10-29,Chicken Sandwich,Food,13,6.50,84.50
+2026-10-29,Soup of the Day,Food,13,5.00,65.00
+2026-10-30,Espresso,Hot drinks,30,2.20,66.00
+2026-10-30,Cappuccino,Hot drinks,46,3.50,161.00
+2026-10-30,Latte,Hot drinks,21,3.80,79.80
+2026-10-30,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-10-30,Tea,Hot drinks,24,1.80,43.20
+2026-10-30,Fresh Orange Juice,Cold drinks,10,4.00,40.00
+2026-10-30,Croissant,Bakery,27,2.50,67.50
+2026-10-30,Cheese Pastry,Bakery,19,2.80,53.20
+2026-10-30,Chocolate Cake,Bakery,12,4.50,54.00
+2026-10-30,Chicken Sandwich,Food,13,6.50,84.50
+2026-10-30,Soup of the Day,Food,13,5.00,65.00
+2026-10-31,Espresso,Hot drinks,32,2.20,70.40
+2026-10-31,Cappuccino,Hot drinks,48,3.50,168.00
+2026-10-31,Latte,Hot drinks,32,3.80,121.60
+2026-10-31,Matcha Latte,Hot drinks,2,4.80,9.60
+2026-10-31,Tea,Hot drinks,25,1.80,45.00
+2026-10-31,Fresh Orange Juice,Cold drinks,16,4.00,64.00
+2026-10-31,Croissant,Bakery,35,2.50,87.50
+2026-10-31,Cheese Pastry,Bakery,25,2.80,70.00
+2026-10-31,Chocolate Cake,Bakery,11,4.50,49.50
+2026-10-31,Chicken Sandwich,Food,17,6.50,110.50
+2026-10-31,Soup of the Day,Food,17,5.00,85.00
+2026-11-01,Espresso,Hot drinks,25,2.20,55.00
+2026-11-01,Cappuccino,Hot drinks,46,3.50,161.00
+2026-11-01,Latte,Hot drinks,28,3.80,106.40
+2026-11-01,Matcha Latte,Hot drinks,2,4.80,9.60
+2026-11-01,Tea,Hot drinks,20,1.80,36.00
+2026-11-01,Fresh Orange Juice,Cold drinks,13,4.00,52.00
+2026-11-01,Croissant,Bakery,23,2.50,57.50
+2026-11-01,Cheese Pastry,Bakery,19,2.80,53.20
+2026-11-01,Chocolate Cake,Bakery,12,4.50,54.00
+2026-11-01,Chicken Sandwich,Food,15,6.50,97.50
+2026-11-01,Soup of the Day,Food,19,5.00,95.00
+2026-11-02,Espresso,Hot drinks,18,2.20,39.60
+2026-11-02,Cappuccino,Hot drinks,29,3.50,101.50
+2026-11-02,Latte,Hot drinks,17,3.80,64.60
+2026-11-02,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-11-02,Tea,Hot drinks,17,1.80,30.60
+2026-11-02,Fresh Orange Juice,Cold drinks,7,4.00,28.00
+2026-11-02,Croissant,Bakery,24,2.50,60.00
+2026-11-02,Cheese Pastry,Bakery,10,2.80,28.00
+2026-11-02,Chocolate Cake,Bakery,7,4.50,31.50
+2026-11-02,Chicken Sandwich,Food,8,6.50,52.00
+2026-11-02,Soup of the Day,Food,10,5.00,50.00
+2026-11-03,Espresso,Hot drinks,18,2.20,39.60
+2026-11-03,Cappuccino,Hot drinks,26,3.50,91.00
+2026-11-03,Latte,Hot drinks,17,3.80,64.60
+2026-11-03,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-11-03,Tea,Hot drinks,17,1.80,30.60
+2026-11-03,Fresh Orange Juice,Cold drinks,6,4.00,24.00
+2026-11-03,Croissant,Bakery,16,2.50,40.00
+2026-11-03,Cheese Pastry,Bakery,17,2.80,47.60
+2026-11-03,Chocolate Cake,Bakery,6,4.50,27.00
+2026-11-03,Chicken Sandwich,Food,10,6.50,65.00
+2026-11-03,Soup of the Day,Food,12,5.00,60.00
+2026-11-04,Espresso,Hot drinks,16,2.20,35.20
+2026-11-04,Cappuccino,Hot drinks,38,3.50,133.00
+2026-11-04,Latte,Hot drinks,21,3.80,79.80
+2026-11-04,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-11-04,Tea,Hot drinks,17,1.80,30.60
+2026-11-04,Fresh Orange Juice,Cold drinks,9,4.00,36.00
+2026-11-04,Croissant,Bakery,23,2.50,57.50
+2026-11-04,Cheese Pastry,Bakery,16,2.80,44.80
+2026-11-04,Chocolate Cake,Bakery,10,4.50,45.00
+2026-11-04,Chicken Sandwich,Food,9,6.50,58.50
+2026-11-04,Soup of the Day,Food,13,5.00,65.00
+2026-11-05,Espresso,Hot drinks,25,2.20,55.00
+2026-11-05,Cappuccino,Hot drinks,39,3.50,136.50
+2026-11-05,Latte,Hot drinks,19,3.80,72.20
+2026-11-05,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-11-05,Tea,Hot drinks,17,1.80,30.60
+2026-11-05,Fresh Orange Juice,Cold drinks,10,4.00,40.00
+2026-11-05,Croissant,Bakery,18,2.50,45.00
+2026-11-05,Cheese Pastry,Bakery,18,2.80,50.40
+2026-11-05,Chocolate Cake,Bakery,10,4.50,45.00
+2026-11-05,Chicken Sandwich,Food,13,6.50,84.50
+2026-11-05,Soup of the Day,Food,16,5.00,80.00
+2026-11-06,Espresso,Hot drinks,28,2.20,61.60
+2026-11-06,Cappuccino,Hot drinks,36,3.50,126.00
+2026-11-06,Latte,Hot drinks,17,3.80,64.60
+2026-11-06,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-11-06,Tea,Hot drinks,24,1.80,43.20
+2026-11-06,Fresh Orange Juice,Cold drinks,11,4.00,44.00
+2026-11-06,Croissant,Bakery,28,2.50,70.00
+2026-11-06,Cheese Pastry,Bakery,14,2.80,39.20
+2026-11-06,Chocolate Cake,Bakery,8,4.50,36.00
+2026-11-06,Chicken Sandwich,Food,10,6.50,65.00
+2026-11-06,Soup of the Day,Food,14,5.00,70.00
+2026-11-07,Espresso,Hot drinks,34,2.20,74.80
+2026-11-07,Cappuccino,Hot drinks,56,3.50,196.00
+2026-11-07,Latte,Hot drinks,23,3.80,87.40
+2026-11-07,Matcha Latte,Hot drinks,2,4.80,9.60
+2026-11-07,Tea,Hot drinks,21,1.80,37.80
+2026-11-07,Fresh Orange Juice,Cold drinks,10,4.00,40.00
+2026-11-07,Croissant,Bakery,39,2.50,97.50
+2026-11-07,Cheese Pastry,Bakery,19,2.80,53.20
+2026-11-07,Chocolate Cake,Bakery,11,4.50,49.50
+2026-11-07,Chicken Sandwich,Food,19,6.50,123.50
+2026-11-07,Soup of the Day,Food,21,5.00,105.00
+2026-11-08,Espresso,Hot drinks,21,2.20,46.20
+2026-11-08,Cappuccino,Hot drinks,51,3.50,178.50
+2026-11-08,Latte,Hot drinks,24,3.80,91.20
+2026-11-08,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-11-08,Tea,Hot drinks,24,1.80,43.20
+2026-11-08,Fresh Orange Juice,Cold drinks,9,4.00,36.00
+2026-11-08,Croissant,Bakery,25,2.50,62.50
+2026-11-08,Cheese Pastry,Bakery,16,2.80,44.80
+2026-11-08,Chocolate Cake,Bakery,13,4.50,58.50
+2026-11-08,Chicken Sandwich,Food,14,6.50,91.00
+2026-11-08,Soup of the Day,Food,17,5.00,85.00
+2026-11-09,Espresso,Hot drinks,18,2.20,39.60
+2026-11-09,Cappuccino,Hot drinks,25,3.50,87.50
+2026-11-09,Latte,Hot drinks,17,3.80,64.60
+2026-11-09,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-11-09,Tea,Hot drinks,15,1.80,27.00
+2026-11-09,Fresh Orange Juice,Cold drinks,8,4.00,32.00
+2026-11-09,Croissant,Bakery,21,2.50,52.50
+2026-11-09,Cheese Pastry,Bakery,12,2.80,33.60
+2026-11-09,Chocolate Cake,Bakery,6,4.50,27.00
+2026-11-09,Chicken Sandwich,Food,9,6.50,58.50
+2026-11-09,Soup of the Day,Food,12,5.00,60.00
+2026-11-11,Espresso,Hot drinks,18,2.20,39.60
+2026-11-11,Cappuccino,Hot drinks,30,3.50,105.00
+2026-11-11,Latte,Hot drinks,17,3.80,64.60
+2026-11-11,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-11-11,Tea,Hot drinks,13,1.80,23.40
+2026-11-11,Fresh Orange Juice,Cold drinks,8,4.00,32.00
+2026-11-11,Croissant,Bakery,17,2.50,42.50
+2026-11-11,Cheese Pastry,Bakery,16,2.80,44.80
+2026-11-11,Chocolate Cake,Bakery,8,4.50,36.00
+2026-11-11,Chicken Sandwich,Food,13,6.50,84.50
+2026-11-11,Soup of the Day,Food,11,5.00,55.00
+2026-11-12,Espresso,Hot drinks,20,2.20,44.00
+2026-11-12,Cappuccino,Hot drinks,26,3.50,91.00
+2026-11-12,Latte,Hot drinks,17,3.80,64.60
+2026-11-12,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-11-12,Tea,Hot drinks,16,1.80,28.80
+2026-11-12,Fresh Orange Juice,Cold drinks,7,4.00,28.00
+2026-11-12,Croissant,Bakery,20,2.50,50.00
+2026-11-12,Cheese Pastry,Bakery,16,2.80,44.80
+2026-11-12,Chocolate Cake,Bakery,9,4.50,40.50
+2026-11-12,Chicken Sandwich,Food,12,6.50,78.00
+2026-11-12,Soup of the Day,Food,12,5.00,60.00
+2026-11-13,Espresso,Hot drinks,28,2.20,61.60
+2026-11-13,Cappuccino,Hot drinks,39,3.50,136.50
+2026-11-13,Latte,Hot drinks,19,3.80,72.20
+2026-11-13,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-11-13,Tea,Hot drinks,21,1.80,37.80
+2026-11-13,Fresh Orange Juice,Cold drinks,10,4.00,40.00
+2026-11-13,Croissant,Bakery,26,2.50,65.00
+2026-11-13,Cheese Pastry,Bakery,16,2.80,44.80
+2026-11-13,Chocolate Cake,Bakery,11,4.50,49.50
+2026-11-13,Chicken Sandwich,Food,12,6.50,78.00
+2026-11-13,Soup of the Day,Food,17,5.00,85.00
+2026-11-14,Espresso,Hot drinks,34,2.20,74.80
+2026-11-14,Cappuccino,Hot drinks,58,3.50,203.00
+2026-11-14,Latte,Hot drinks,28,3.80,106.40
+2026-11-14,Matcha Latte,Hot drinks,2,4.80,9.60
+2026-11-14,Tea,Hot drinks,32,1.80,57.60
+2026-11-14,Fresh Orange Juice,Cold drinks,10,4.00,40.00
+2026-11-14,Croissant,Bakery,40,2.50,100.00
+2026-11-14,Cheese Pastry,Bakery,27,2.80,75.60
+2026-11-14,Chocolate Cake,Bakery,12,4.50,54.00
+2026-11-14,Chicken Sandwich,Food,15,6.50,97.50
+2026-11-14,Soup of the Day,Food,25,5.00,125.00
+2026-11-15,Espresso,Hot drinks,27,2.20,59.40
+2026-11-15,Cappuccino,Hot drinks,48,3.50,168.00
+2026-11-15,Latte,Hot drinks,29,3.80,110.20
+2026-11-15,Matcha Latte,Hot drinks,2,4.80,9.60
+2026-11-15,Tea,Hot drinks,21,1.80,37.80
+2026-11-15,Croissant,Bakery,26,2.50,65.00
+2026-11-15,Cheese Pastry,Bakery,19,2.80,53.20
+2026-11-15,Chocolate Cake,Bakery,11,4.50,49.50
+2026-11-15,Chicken Sandwich,Food,13,6.50,84.50
+2026-11-15,Soup of the Day,Food,20,5.00,100.00
+2026-11-16,Espresso,Hot drinks,16,2.20,35.20
+2026-11-16,Cappuccino,Hot drinks,34,3.50,119.00
+2026-11-16,Latte,Hot drinks,13,3.80,49.40
+2026-11-16,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-11-16,Tea,Hot drinks,12,1.80,21.60
+2026-11-16,Fresh Orange Juice,Cold drinks,7,4.00,28.00
+2026-11-16,Croissant,Bakery,21,2.50,52.50
+2026-11-16,Cheese Pastry,Bakery,15,2.80,42.00
+2026-11-16,Chocolate Cake,Bakery,6,4.50,27.00
+2026-11-16,Chicken Sandwich,Food,8,6.50,52.00
+2026-11-16,Soup of the Day,Food,14,5.00,70.00
+2026-11-17,Espresso,Hot drinks,15,2.20,33.00
+2026-11-17,Cappuccino,Hot drinks,30,3.50,105.00
+2026-11-17,Latte,Hot drinks,16,3.80,60.80
+2026-11-17,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-11-17,Tea,Hot drinks,14,1.80,25.20
+2026-11-17,Fresh Orange Juice,Cold drinks,6,4.00,24.00
+2026-11-17,Croissant,Bakery,23,2.50,57.50
+2026-11-17,Cheese Pastry,Bakery,16,2.80,44.80
+2026-11-17,Chocolate Cake,Bakery,9,4.50,40.50
+2026-11-17,Chicken Sandwich,Food,10,6.50,65.00
+2026-11-17,Soup of the Day,Food,15,5.00,75.00
+2026-11-18,Espresso,Hot drinks,19,2.20,41.80
+2026-11-18,Cappuccino,Hot drinks,25,3.50,87.50
+2026-11-18,Latte,Hot drinks,19,3.80,72.20
+2026-11-18,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-11-18,Tea,Hot drinks,18,1.80,32.40
+2026-11-18,Fresh Orange Juice,Cold drinks,5,4.00,20.00
+2026-11-18,Croissant,Bakery,22,2.50,55.00
+2026-11-18,Cheese Pastry,Bakery,13,2.80,36.40
+2026-11-18,Chocolate Cake,Bakery,9,4.50,40.50
+2026-11-18,Chicken Sandwich,Food,8,6.50,52.00
+2026-11-18,Soup of the Day,Food,15,5.00,75.00
+2026-11-19,Espresso,Hot drinks,26,2.20,57.20
+2026-11-19,Cappuccino,Hot drinks,37,3.50,129.50
+2026-11-19,Latte,Hot drinks,17,3.80,64.60
+2026-11-19,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-11-19,Tea,Hot drinks,21,1.80,37.80
+2026-11-19,Fresh Orange Juice,Cold drinks,7,4.00,28.00
+2026-11-19,Croissant,Bakery,26,2.50,65.00
+2026-11-19,Cheese Pastry,Bakery,11,2.80,30.80
+2026-11-19,Chocolate Cake,Bakery,9,4.50,40.50
+2026-11-19,Chicken Sandwich,Food,10,6.50,65.00
+2026-11-19,Soup of the Day,Food,12,5.00,60.00
+2026-11-20,Espresso,Hot drinks,30,2.20,66.00
+2026-11-20,Cappuccino,Hot drinks,41,3.50,143.50
+2026-11-20,Latte,Hot drinks,18,3.80,68.40
+2026-11-20,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-11-20,Tea,Hot drinks,22,1.80,39.60
+2026-11-20,Fresh Orange Juice,Cold drinks,7,4.00,28.00
+2026-11-20,Croissant,Bakery,32,2.50,80.00
+2026-11-20,Cheese Pastry,Bakery,20,2.80,56.00
+2026-11-20,Chocolate Cake,Bakery,9,4.50,40.50
+2026-11-20,Chicken Sandwich,Food,12,6.50,78.00
+2026-11-20,Soup of the Day,Food,18,5.00,90.00
+2026-11-21,Espresso,Hot drinks,33,2.20,72.60
+2026-11-21,Cappuccino,Hot drinks,50,3.50,175.00
+2026-11-21,Latte,Hot drinks,36,3.80,136.80
+2026-11-21,Matcha Latte,Hot drinks,2,4.80,9.60
+2026-11-21,Tea,Hot drinks,28,1.80,50.40
+2026-11-21,Fresh Orange Juice,Cold drinks,11,4.00,44.00
+2026-11-21,Croissant,Bakery,40,2.50,100.00
+2026-11-21,Cheese Pastry,Bakery,22,2.80,61.60
+2026-11-21,Chocolate Cake,Bakery,12,4.50,54.00
+2026-11-21,Chicken Sandwich,Food,15,6.50,97.50
+2026-11-21,Soup of the Day,Food,19,5.00,95.00
+2026-11-22,Espresso,Hot drinks,27,2.20,59.40
+2026-11-22,Cappuccino,Hot drinks,35,3.50,122.50
+2026-11-22,Latte,Hot drinks,30,3.80,114.00
+2026-11-22,Matcha Latte,Hot drinks,2,4.80,9.60
+2026-11-22,Tea,Hot drinks,22,1.80,39.60
+2026-11-22,Fresh Orange Juice,Cold drinks,10,4.00,40.00
+2026-11-22,Croissant,Bakery,23,2.50,57.50
+2026-11-22,Chocolate Cake,Bakery,12,4.50,54.00
+2026-11-22,Chicken Sandwich,Food,13,6.50,84.50
+2026-11-22,Soup of the Day,Food,19,5.00,95.00
+2026-11-23,Espresso,Hot drinks,17,2.20,37.40
+2026-11-23,Cappuccino,Hot drinks,32,3.50,112.00
+2026-11-23,Latte,Hot drinks,14,3.80,53.20
+2026-11-23,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-11-23,Tea,Hot drinks,13,1.80,23.40
+2026-11-23,Fresh Orange Juice,Cold drinks,6,4.00,24.00
+2026-11-23,Croissant,Bakery,17,2.50,42.50
+2026-11-23,Cheese Pastry,Bakery,12,2.80,33.60
+2026-11-23,Chocolate Cake,Bakery,7,4.50,31.50
+2026-11-23,Chicken Sandwich,Food,9,6.50,58.50
+2026-11-23,Soup of the Day,Food,12,5.00,60.00
+2026-11-24,Espresso,Hot drinks,18,2.20,39.60
+2026-11-24,Cappuccino,Hot drinks,24,3.50,84.00
+2026-11-24,Latte,Hot drinks,13,3.80,49.40
+2026-11-24,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-11-24,Tea,Hot drinks,12,1.80,21.60
+2026-11-24,Fresh Orange Juice,Cold drinks,7,4.00,28.00
+2026-11-24,Croissant,Bakery,18,2.50,45.00
+2026-11-24,Cheese Pastry,Bakery,15,2.80,42.00
+2026-11-24,Chocolate Cake,Bakery,7,4.50,31.50
+2026-11-24,Chicken Sandwich,Food,9,6.50,58.50
+2026-11-24,Soup of the Day,Food,12,5.00,60.00
+2026-11-25,Espresso,Hot drinks,16,2.20,35.20
+2026-11-25,Cappuccino,Hot drinks,35,3.50,122.50
+2026-11-25,Latte,Hot drinks,17,3.80,64.60
+2026-11-25,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-11-25,Tea,Hot drinks,20,1.80,36.00
+2026-11-25,Fresh Orange Juice,Cold drinks,7,4.00,28.00
+2026-11-25,Croissant,Bakery,25,2.50,62.50
+2026-11-25,Cheese Pastry,Bakery,12,2.80,33.60
+2026-11-25,Chocolate Cake,Bakery,7,4.50,31.50
+2026-11-25,Chicken Sandwich,Food,8,6.50,52.00
+2026-11-25,Soup of the Day,Food,13,5.00,65.00
+2026-11-26,Espresso,Hot drinks,23,2.20,50.60
+2026-11-26,Cappuccino,Hot drinks,29,3.50,101.50
+2026-11-26,Latte,Hot drinks,20,3.80,76.00
+2026-11-26,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-11-26,Tea,Hot drinks,14,1.80,25.20
+2026-11-26,Fresh Orange Juice,Cold drinks,8,4.00,32.00
+2026-11-26,Croissant,Bakery,17,2.50,42.50
+2026-11-26,Cheese Pastry,Bakery,14,2.80,39.20
+2026-11-26,Chocolate Cake,Bakery,8,4.50,36.00
+2026-11-26,Chicken Sandwich,Food,12,6.50,78.00
+2026-11-26,Soup of the Day,Food,16,5.00,80.00
+2026-11-27,Espresso,Hot drinks,21,2.20,46.20
+2026-11-27,Cappuccino,Hot drinks,45,3.50,157.50
+2026-11-27,Latte,Hot drinks,17,3.80,64.60
+2026-11-27,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-11-27,Tea,Hot drinks,17,1.80,30.60
+2026-11-27,Fresh Orange Juice,Cold drinks,10,4.00,40.00
+2026-11-27,Croissant,Bakery,30,2.50,75.00
+2026-11-27,Cheese Pastry,Bakery,16,2.80,44.80
+2026-11-27,Chocolate Cake,Bakery,9,4.50,40.50
+2026-11-27,Chicken Sandwich,Food,15,6.50,97.50
+2026-11-27,Soup of the Day,Food,18,5.00,90.00
+2026-11-28,Espresso,Hot drinks,37,2.20,81.40
+2026-11-28,Cappuccino,Hot drinks,51,3.50,178.50
+2026-11-28,Latte,Hot drinks,34,3.80,129.20
+2026-11-28,Matcha Latte,Hot drinks,2,4.80,9.60
+2026-11-28,Tea,Hot drinks,20,1.80,36.00
+2026-11-28,Fresh Orange Juice,Cold drinks,9,4.00,36.00
+2026-11-28,Croissant,Bakery,37,2.50,92.50
+2026-11-28,Cheese Pastry,Bakery,24,2.80,67.20
+2026-11-28,Chocolate Cake,Bakery,15,4.50,67.50
+2026-11-28,Chicken Sandwich,Food,19,6.50,123.50
+2026-11-28,Soup of the Day,Food,22,5.00,110.00
+2026-11-29,Espresso,Hot drinks,25,2.20,55.00
+2026-11-29,Cappuccino,Hot drinks,42,3.50,147.00
+2026-11-29,Latte,Hot drinks,23,3.80,87.40
+2026-11-29,Matcha Latte,Hot drinks,2,4.80,9.60
+2026-11-29,Tea,Hot drinks,23,1.80,41.40
+2026-11-29,Fresh Orange Juice,Cold drinks,7,4.00,28.00
+2026-11-29,Croissant,Bakery,28,2.50,70.00
+2026-11-29,Cheese Pastry,Bakery,17,2.80,47.60
+2026-11-29,Chocolate Cake,Bakery,11,4.50,49.50
+2026-11-29,Chicken Sandwich,Food,13,6.50,84.50
+2026-11-29,Soup of the Day,Food,25,5.00,125.00
+2026-11-30,Espresso,Hot drinks,22,2.20,48.40
+2026-11-30,Cappuccino,Hot drinks,21,3.50,73.50
+2026-11-30,Latte,Hot drinks,17,3.80,64.60
+2026-11-30,Matcha Latte,Hot drinks,1,4.80,4.80
+2026-11-30,Tea,Hot drinks,14,1.80,25.20
+2026-11-30,Fresh Orange Juice,Cold drinks,6,4.00,24.00
+2026-11-30,Croissant,Bakery,22,2.50,55.00
+2026-11-30,Cheese Pastry,Bakery,10,2.80,28.00
+2026-11-30,Chocolate Cake,Bakery,8,4.50,36.00
+2026-11-30,Chicken Sandwich,Food,9,6.50,58.50
+2026-11-30,Soup of the Day,Food,15,5.00,75.00

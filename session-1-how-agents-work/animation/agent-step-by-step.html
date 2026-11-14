@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent Step by Step</title>
+<style>
+  :root {
+    --blue: #0063AC; --blue-soft: #e8f1f8; --ink: #1a1a1a; --muted: #5a6b80; --line: #dbe6f3;
+    --bg: #f4f7fb; --card: #ffffff;
+    --goal: #3b4252; --aside: #c0392b; --plan: #0063AC; --act: #7a3fb0; --observe: #0f7b6c;
+    --ask: #b26a00; --done: #2e7d32;
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html, body { margin: 0; }
+  body { background: var(--bg); color: var(--ink); font-family: 'Helvetica Neue', Arial, sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
+  header { display: flex; align-items: center; gap: 14px; padding: 12px 24px; background: var(--card); border-bottom: 2px solid var(--line); flex-wrap: wrap; }
+  header h1 { font-size: 21px; margin: 0; color: var(--blue); flex: 1; min-width: 220px; }
+  header h1 small { display: block; font-size: 13px; color: var(--muted); font-weight: 400; margin-top: 2px; }
+  .tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tabs button { border: 2px solid var(--line); background: var(--card); color: var(--muted); border-radius: 10px; padding: 8px 14px; font: 700 15px inherit; font-family: inherit; cursor: pointer; }
+  .tabs button[aria-selected="true"] { border-color: var(--blue); color: var(--blue); background: var(--blue-soft); }
+  main { flex: 1; display: grid; grid-template-columns: 1fr 1.3fr 1fr; gap: 18px; padding: 18px 24px 0; }
+  .panel { background: var(--card); border: 2px solid var(--line); border-radius: 16px; padding: 16px 18px; display: flex; flex-direction: column; gap: 12px; min-height: 330px; transition: border-color .3s, box-shadow .3s; }
+  .panel.focus { border-color: var(--blue); box-shadow: 0 0 0 5px rgba(0, 99, 172, .13); }
+  .panel h2 { font-size: 13px; letter-spacing: 1.5px; margin: 0; color: var(--muted); }
+  .panel h2 b { color: var(--ink); font-size: 16px; letter-spacing: 1px; margin-right: 6px; }
+  .bubble { font-size: clamp(16px, 1.45vw, 21px); line-height: 1.42; padding: 12px 15px; border-radius: 14px; white-space: pre-line; }
+  .msg { background: #f1f3f6; }
+  .msg.from-model { background: var(--blue-soft); border-left: 4px solid var(--blue); }
+  .msg .who { display: block; font-size: 12px; font-weight: 700; letter-spacing: 1px; color: var(--muted); margin-bottom: 3px; }
+  .msg.old { opacity: .5; }
+  .chip { align-self: flex-start; padding: 6px 14px; border-radius: 999px; color: #fff; font-weight: 700; font-size: 16px; }
+  .chip span { font-weight: 400; opacity: .9; }
+  .thought { background: var(--blue-soft); flex: 1; min-height: 140px; }
+  .thought.aside { background: #fdecea; border: 2px dashed var(--aside); }
+  .tool { border: 2px solid var(--line); border-radius: 12px; padding: 9px 12px; transition: border-color .3s, background .3s; }
+  .tool .name { font-family: Menlo, Consolas, monospace; font-weight: 700; color: var(--blue); font-size: 16px; }
+  .tool .desc { font-size: 14px; color: var(--muted); margin-top: 3px; line-height: 1.35; }
+  .tool.active { border-color: var(--act); background: #f6f0fb; }
+  .io { font-family: Menlo, Consolas, monospace; font-size: clamp(14px, 1.25vw, 18px); padding: 10px 12px; border-radius: 10px; white-space: pre-line; line-height: 1.4; transition: opacity .3s; }
+  .io .lbl { display: block; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 1px; color: var(--muted); font-weight: 700; margin-bottom: 4px; }
+  .io.req { background: #f6f0fb; border: 1px solid #dccbee; }
+  .io.res { background: #e8f5f2; border: 1px solid #bfe3db; }
+  .io.res.err { background: #fdecea; border-color: #f3c2bc; }
+  .io.old { opacity: .45; }
+  .waiting { opacity: .12 !important; }
+  .packet { position: fixed; z-index: 20; left: 0; top: 0; padding: 8px 14px; border-radius: 10px; font: 15px Menlo, Consolas, monospace; color: #fff; pointer-events: none; transition: transform .75s cubic-bezier(.4, 0, .2, 1); box-shadow: 0 8px 20px rgba(0, 0, 0, .2); max-width: 36vw; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .caption-bar { margin: 16px 24px 0; background: var(--card); border: 2px solid var(--line); border-radius: 16px; padding: 14px 20px; display: flex; gap: 18px; flex-wrap: wrap; align-items: flex-start; }
+  .caption-main { flex: 1; min-width: 280px; }
+  .caption { font-size: clamp(18px, 1.6vw, 23px); line-height: 1.45; margin: 0; }
+  .habit { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+  .habit span { border-radius: 8px; padding: 5px 12px; font-size: 15px; font-weight: 700; }
+  .habit .h-name { background: var(--blue); color: #fff; }
+  .habit .h-who { background: #fff6e5; color: #7a4a00; border: 1px solid #f0c36d; }
+  .askbox { background: #fff6e5; border: 2px solid #f0c36d; border-radius: 12px; padding: 10px 14px; font-size: 18px; max-width: 360px; line-height: 1.4; }
+  .askbox b { display: block; font-size: 13px; letter-spacing: 1px; color: #7a4a00; margin-bottom: 3px; }
+  .summary { margin: 10px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 8px; }
+  .summary li { background: var(--blue-soft); border-radius: 10px; padding: 8px 12px; font-size: 15px; line-height: 1.35; }
+  .summary li b { display: block; color: var(--blue); font-size: 16px; }
+  footer { display: flex; align-items: center; gap: 14px; padding: 14px 24px 18px; flex-wrap: wrap; }
+  .loop { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .loop .st { padding: 6px 12px; border-radius: 8px; background: #e6ebf2; color: var(--muted); font-weight: 700; font-size: 14px; transition: background .3s, color .3s; }
+  .loop .arrow { color: var(--muted); }
+  .loop .ring { border: 2px dashed #b9c5d6; border-radius: 12px; padding: 4px 6px; display: flex; gap: 6px; align-items: center; }
+  .loop .ring::after { content: 'repeat'; font-size: 12px; color: var(--muted); padding: 0 4px; }
+  .controls { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+  .counter { color: var(--muted); font-size: 15px; margin-right: 6px; }
+  .btn { border: 2px solid var(--blue); background: #fff; color: var(--blue); padding: 8px 16px; border-radius: 10px; font: 700 16px 'Helvetica Neue', Arial, sans-serif; cursor: pointer; }
+  .btn.primary { background: var(--blue); color: #fff; min-width: 110px; }
+  .btn:disabled { opacity: .35; cursor: default; }
+  .btn[aria-pressed="true"] { background: var(--blue-soft); }
+  .log { position: fixed; top: 0; right: 0; bottom: 0; width: min(360px, 90vw); background: var(--card); border-left: 2px solid var(--line); box-shadow: -10px 0 30px rgba(0, 0, 0, .1); padding: 20px; transform: translateX(105%); transition: transform .3s; z-index: 30; overflow-y: auto; }
+  .log.open { transform: none; }
+  .log h3 { margin: 0 0 4px; color: var(--blue); }
+  .log p { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
+  .log ol { padding-left: 22px; margin: 0; }
+  .log li { margin-bottom: 8px; font-size: 15px; line-height: 1.35; }
+  .keys { color: var(--muted); font-size: 13px; }
+  @media (max-width: 900px) { main { grid-template-columns: 1fr; } .panel { min-height: 0; } }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>How an AI agent works, step by step<small>An illustration of what happens inside an agent. Press the right arrow key or Next.</small></h1>
+  <nav class="tabs" role="tablist" id="tabs"></nav>
+</header>
+
+<main>
+  <section class="panel" id="p-person">
+    <h2><b>YOU</b>the person</h2>
+    <div id="messages" style="display:flex;flex-direction:column;gap:10px"></div>
+  </section>
+  <section class="panel" id="p-model">
+    <h2><b>THE MODEL</b>the brain that decides</h2>
+    <div class="chip" id="chip"></div>
+    <div class="bubble thought" id="thought"></div>
+  </section>
+  <section class="panel" id="p-computer">
+    <h2><b>THE COMPUTER</b>the hands that act</h2>
+    <div id="tools" style="display:flex;flex-direction:column;gap:8px"></div>
+    <div class="io req" id="request" hidden><span class="lbl">REQUEST FROM THE MODEL</span><span id="request-text"></span></div>
+    <div class="io res" id="result" hidden><span class="lbl">RESULT SENT BACK</span><span id="result-text"></span></div>
+  </section>
+</main>
+
+<section class="caption-bar">
+  <div class="caption-main">
+    <div class="habit" id="habit" hidden></div>
+    <p class="caption" id="caption"></p>
+    <ul class="summary" id="summary" hidden></ul>
+  </div>
+  <div class="askbox" id="ask" hidden><b>ASK THE ROOM</b><span id="ask-text"></span></div>
+</section>
+
+<footer>
+  <div class="loop" id="loop">
+    <span class="st" data-stage="goal">GOAL</span><span class="arrow">&#8594;</span>
+    <span class="ring"><span class="st" data-stage="plan">PLAN</span><span class="arrow">&#8594;</span><span class="st" data-stage="act">ACT</span><span class="arrow">&#8594;</span><span class="st" data-stage="observe">OBSERVE</span></span>
+    <span class="arrow">&#8594;</span><span class="st" data-stage="done">DONE</span>
+  </div>
+  <div class="controls">
+    <span class="counter" id="counter"></span>
+    <button class="btn" id="btn-log" aria-pressed="false">Log</button>
+    <button class="btn" id="btn-auto" aria-pressed="false">Auto</button>
+    <button class="btn" id="btn-restart">Restart</button>
+    <button class="btn" id="btn-back">Back</button>
+    <button class="btn primary" id="btn-next">Next</button>
+  </div>
+</footer>
+
+<aside class="log" id="log" aria-label="Log of what happened">
+  <h3>What happened so far</h3>
+  <p>The agent's log: every step, in order. Checking this is how you check the path, not just the answer.</p>
+  <ol id="log-list"></ol>
+  <p class="keys" style="margin-top:16px">Keys: right arrow or space = next, left arrow = back, Home = restart, 1 2 3 = scenario, L = log, A = auto.</p>
+</aside>
+
+<script>
+// ---------- Content: edit the text here ----------
+const HABITS = {
+  todo: 'To-do list first (Plan and Execute)',
+  lookup: 'Look it up as you go (ReAct)',
+  steps: 'Think step by step (Chain of Thought)',
+  check: 'Check and fix (Reflection)',
+};
+const WHO = { you: 'Who decided: you, in the prompt', model: 'Who decided: the model, by itself' };
+
+const SCENARIOS = [
+  {
+    tab: '1. School buses',
+    tools: [{ name: 'calculator', desc: 'Does exact maths. Write numbers and + - x / only.' }],
+    steps: [
+      { stage: 'goal', person: '4,750 students are going on a school trip. 18% of them will take the bus. Each bus has 52 seats. How many buses do we need?', model: 'A new goal has arrived.', caption: 'A person gives the agent a goal. Everything that follows is the agent working toward it.', ask: 'Could you solve this in your head? How sure would you be?', log: 'Goal: how many buses?' },
+      { stage: 'aside', model: 'Guessing from memory...\n"About 16 buses?"', caption: 'Without tools, a language model writes numbers the way it writes words: by predicting what looks right. It is often close. But 16 buses would leave 23 students without a seat. Close is not good enough.' },
+      { stage: 'plan', tool: 'calculator', model: 'I should not guess the maths.\nI have a calculator tool.\nFirst I need 18% of 4,750.', caption: 'PLAN means: decide the next step. The model reads the tool card on the right and picks the calculator.', log: 'Plan: use the calculator for 18% of 4,750' },
+      { stage: 'act', request: { tool: 'calculator', input: '4750 x 0.18' }, model: 'Request sent. Waiting for the result.', caption: 'ACT means: use a tool. The model does not press any buttons. It writes a request, and the computer runs it.', ask: 'Who is actually doing the maths here?', log: 'Act: calculator(4750 x 0.18)' },
+      { stage: 'observe', result: { text: '855' }, model: '855 students will take the bus.', caption: 'OBSERVE means: read what came back. Now the model knows a number it did not know a moment ago.', log: 'Observe: 855 students' },
+      { stage: 'plan', tool: 'calculator', model: 'Next: how many buses of 52 seats for 855 students?\nI will divide, with the calculator again.', caption: 'The loop starts again: plan, act, observe. One small step at a time.', log: 'Plan: divide 855 by 52' },
+      { stage: 'act', request: { tool: 'calculator', input: '855 / 52' }, model: 'Request sent. Waiting for the result.', caption: 'ACT again: same tool, new request.', log: 'Act: calculator(855 / 52)' },
+      { stage: 'observe', result: { text: '16.44' }, model: '16.44 buses.\nYou cannot hire 0.44 of a bus.\n16 buses would leave students behind,\nso I must round up to 17.', caption: 'Observing is also thinking. The model checks whether the result makes sense in the real world.', ask: 'What would you do with 16.44 buses?', log: 'Observe: 16.44, so round up to 17' },
+      { stage: 'done', reply: 'You need 17 buses. 855 students will ride, and 17 buses give 884 seats, so everyone gets a seat.', model: 'The goal is met. Stopping.', caption: 'DONE: the goal is met, so the loop stops. Two loops, two tool calls, and an answer you can trust.', log: 'Done: 17 buses' },
+    ],
+  },
+  {
+    tab: '2. Meeting room',
+    tools: [
+      { name: 'find_rooms', desc: 'Lists meeting rooms and whether they are free, for a day, a time and a group size.' },
+      { name: 'book_room', desc: 'Books one room. Needs the room, the date written like 2026-11-19, and the time.' },
+    ],
+    steps: [
+      { stage: 'goal', person: 'Please book a meeting room for 30 people this Thursday at 10:00.', model: 'A new goal has arrived.', caption: 'A new goal. This time the agent has two tools: one to search and one to book.', log: 'Goal: a room for 30 people, Thursday 10:00' },
+      { stage: 'plan', tool: 'find_rooms', model: 'First I need to know which rooms are free on Thursday at 10:00.\nI will search.', caption: 'PLAN: the model picks the search tool, because its card says it lists free rooms.', log: 'Plan: search for free rooms' },
+      { stage: 'act', request: { tool: 'find_rooms', input: 'day: Thursday, time: 10:00, people: 30' }, model: 'Searching...', caption: 'ACT: the computer runs the search.', log: 'Act: find_rooms(Thursday, 10:00, 30 people)' },
+      { stage: 'observe', result: { text: 'Room A, 40 seats: already booked\nRoom B, 35 seats: free\nRoom C, 20 seats: free' }, model: 'Room A is taken.\nRoom C is too small for 30 people.\nRoom B fits.', caption: 'OBSERVE: the result is not what a simple plan expected. Room A is full. The agent changes course. This is called replanning.', ask: 'Which room would you pick? Why not Room C?', log: 'Observe: Room A full, so change plan to Room B' },
+      { stage: 'plan', model: 'Booking uses money and affects other people.\nI should check with the person before I book.', caption: 'Good agents stop and ask before actions that cost money, send messages or delete things.', log: 'Plan: ask before booking' },
+      { stage: 'ask', reply: 'Room A is full. Room B (35 seats) is free on Thursday at 10:00. Shall I book it?', model: 'Waiting for your answer.', caption: 'ASK: the agent pauses and asks you. You stay in charge.', log: 'Ask: may I book Room B?' },
+      { stage: 'ask', person: 'Yes, please book Room B.', model: 'Approved. Continuing.', caption: 'With your yes, the agent continues.', log: 'Person said yes' },
+      { stage: 'act', tool: 'book_room', request: { tool: 'book_room', input: 'room: Room B, date: Thursday, time: 10:00' }, model: 'Booking...', caption: 'ACT: now the booking tool.', log: 'Act: book_room(Room B, Thursday)' },
+      { stage: 'observe', result: { text: 'Error: write the date like 2026-11-19.', error: true }, model: 'The tool needs a full date, not "Thursday".\nThis Thursday is 19 November 2026.\nI will try again.', caption: 'An error is just a message. A good tool explains how to fix the request, and the agent tries again.', ask: 'What did the agent get wrong?', log: 'Observe: error, date format' },
+      { stage: 'act', request: { tool: 'book_room', input: 'room: Room B, date: 2026-11-19, time: 10:00' }, model: 'Trying again with the full date.', caption: 'ACT again, with a corrected request.', log: 'Act: book_room(Room B, 2026-11-19)' },
+      { stage: 'observe', result: { text: 'Booked. Confirmation number RB-4471.' }, model: 'Booked. I have a confirmation number.', caption: 'OBSERVE: this time it worked.', log: 'Observe: booked, RB-4471' },
+      { stage: 'done', reply: 'Done. Room B is booked for Thursday 19 November at 10:00 for 30 people. Confirmation RB-4471.', model: 'The goal is met. Stopping.', caption: 'DONE. On the way, the agent changed its plan, asked permission, and recovered from an error. A fixed recipe could not have done that.', log: 'Done: Room B booked' },
+    ],
+  },
+  {
+    tab: '3. Four habits, one job',
+    tools: [
+      { name: 'read_file', desc: 'Opens a file and reads what is inside.' },
+      { name: 'spreadsheet', desc: 'Cleans data and adds up columns of numbers.' },
+      { name: 'write_file', desc: 'Writes a new document, or edits one.' },
+    ],
+    steps: [
+      { stage: 'goal', person: 'Here are our café\'s 3 months of sales. Which product sells best, and should we keep the Matcha Latte? Write a one-page note.\nShow me your plan first, and check your numbers before you finish.', model: 'A bigger job, with several steps.', caption: 'A bigger job. Watch for four habits. Each step shows which habit it is, and who decided to use it.', log: 'Goal: best seller, and keep the Matcha Latte?' },
+      { stage: 'plan', habit: 'todo', who: 'you', model: 'My plan:\n1. Open the sales file\n2. Add up sales per product\n3. Look closely at the Matcha Latte\n4. Write the note\n5. Check every number', caption: 'For a big job, the agent writes all the steps before starting, so nothing gets forgotten. Here you asked for it: "Show me your plan first".', log: 'To-do list written (5 steps)' },
+      { stage: 'plan', habit: 'lookup', who: 'model', tool: 'read_file', model: 'Step 1. I do not have the sales numbers yet.\nI will open the file.', caption: 'The agent notices what it does not know, and picks a tool to find out. Nobody told it which tool: it decided by reading the tool cards.', log: 'Plan: read the sales file' },
+      { stage: 'act', habit: 'lookup', who: 'model', request: { tool: 'read_file', input: 'cafe_sales.csv' }, model: 'Opening the file...', caption: 'ACT: the computer opens the file.', log: 'Act: read_file(cafe_sales.csv)' },
+      { stage: 'observe', habit: 'lookup', who: 'model', result: { text: '979 rows.\nDates written 3 different ways.\nTypos, like "Cappucino".' }, model: 'The data is messy.\nIf I add it up now, the totals will be wrong.\nI will clean it first.', caption: 'It reads the result and adjusts. Cleaning was not on the to-do list, but the data needs it.', log: 'Observe: messy data, so clean it first' },
+      { stage: 'act', habit: 'lookup', who: 'model', request: { tool: 'spreadsheet', input: 'clean the data, then add up sales per product' }, model: 'Cleaning and adding up...', caption: 'ACT: a different tool for a different job.', log: 'Act: spreadsheet(clean, total per product)' },
+      { stage: 'observe', habit: 'lookup', who: 'model', result: { text: 'Cappuccino     $11,407\nLatte           $6,958\nChicken Sandw.  $6,955\n...\nMatcha Latte      $365\nTotal          $55,510' }, model: 'Now I have the numbers.\nCappuccino is far ahead.', caption: 'Think, use a tool, read the result, think again. This look-it-up-as-you-go loop is the same one you saw with the buses.', log: 'Observe: Cappuccino $11,407, Matcha $365' },
+      { stage: 'plan', habit: 'steps', who: 'model', model: 'Should we keep the Matcha Latte?\n1. It earned $365 since 1 October.\n2. That is 61 days, so about $6 a day.\n3. At $4.80 a cup, about 1.3 cups a day.\n4. $365 is under 1% of the $55,510 total.\nSo: it is not selling.', caption: 'Before giving an opinion, the agent writes out its working, like workings on an exam paper. Each line uses the one before.', log: 'Worked out: Matcha sells about 1.3 cups a day' },
+      { stage: 'act', habit: 'todo', who: 'you', request: { tool: 'write_file', input: 'cafe_note.md' }, model: 'Back to my list. Step 4: write the note.', caption: 'Back to the to-do list: step 4, write the note.', log: 'Act: write_file(cafe_note.md)' },
+      { stage: 'observe', habit: 'check', who: 'you', model: 'Step 5: check every number against the data.\nNote says Cappuccino earned $11,047.\nData says $11,407.\nTwo digits swapped. I must fix it.', caption: 'The agent re-reads its own work against the data, and catches a mistake before you ever see it. You asked for this ("check your numbers"). Good agents often do it anyway.', ask: 'Would you have spotted that mistake?', log: 'Check: found $11,047, should be $11,407' },
+      { stage: 'act', habit: 'check', who: 'you', request: { tool: 'write_file', input: 'change $11,047 to $11,407' }, model: 'Fixing the number.', caption: 'ACT: the fix.', log: 'Act: fixed the number' },
+      {
+        stage: 'done', reply: 'Here is your note. Cappuccino sells best: $11,407, about a fifth of all sales. The Matcha Latte sells about 1.3 cups a day: drop it, or keep it one more month with a clear target.', model: 'All 5 steps done and checked. Stopping.', caption: 'Four habits, one job. They are not four separate machines. They are habits that one agent switches between, step by step.', log: 'Done: note delivered',
+        summary: [
+          { habit: 'todo', who: 'You asked: "Show me your plan first"' },
+          { habit: 'lookup', who: 'The model decided, when it saw what it was missing' },
+          { habit: 'steps', who: 'The model decided, because the question needed reasoning' },
+          { habit: 'check', who: 'You asked: "Check your numbers"' },
+        ],
+      },
+    ],
+  },
+];
+
+const STAGES = {
+  goal: { label: 'GOAL', hint: 'what the person wants', color: 'var(--goal)', focus: 'person' },
+  aside: { label: 'WITHOUT TOOLS', hint: 'what could go wrong', color: 'var(--aside)', focus: 'model' },
+  plan: { label: 'PLAN', hint: 'decide the next step', color: 'var(--plan)', focus: 'model' },
+  act: { label: 'ACT', hint: 'use a tool', color: 'var(--act)', focus: 'computer' },
+  observe: { label: 'OBSERVE', hint: 'read what came back', color: 'var(--observe)', focus: 'model' },
+  ask: { label: 'ASK', hint: 'check with the person first', color: 'var(--ask)', focus: 'person' },
+  done: { label: 'DONE', hint: 'goal met, the loop stops', color: 'var(--done)', focus: 'person' },
+};
+const AUTO_MS = 6000;
+
+// ---------- Engine ----------
+const $ = (id) => document.getElementById(id);
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let state = { scenario: 0, index: 0, logOpen: false, auto: false };
+let autoTimer = null;
+
+function setState(patch) {
+  state = { ...state, ...patch };
+}
+
+function escapeHtml(text) {
+  return String(text).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+}
+
+function lastIndex(items, test) {
+  for (let i = items.length - 1; i >= 0; i--) if (test(items[i])) return i;
+  return -1;
+}
+
+function renderTabs() {
+  $('tabs').innerHTML = SCENARIOS.map((s, i) =>
+    `<button role="tab" aria-selected="${i === state.scenario}" data-i="${i}">${escapeHtml(s.tab)}</button>`).join('');
+}
+
+function renderMessages(seen) {
+  const msgs = seen.flatMap((s) => [
+    s.person ? { from: 'person', text: s.person } : null,
+    s.reply ? { from: 'model', text: s.reply } : null,
+  ].filter(Boolean)).slice(-3);
+  $('messages').innerHTML = msgs.map((m, i) => {
+    const old = i < msgs.length - 1 ? ' old' : '';
+    const who = m.from === 'person' ? 'YOU' : 'THE AGENT';
+    return `<div class="bubble msg from-${m.from}${old}"><span class="who">${who}</span>${escapeHtml(m.text)}</div>`;
+  }).join('');
+}
+
+function renderModel(step) {
+  const st = STAGES[step.stage];
+  const chip = $('chip');
+  chip.style.background = st.color;
+  chip.innerHTML = `${st.label} <span>: ${st.hint}</span>`;
+  const thought = $('thought');
+  thought.textContent = step.model || '';
+  thought.classList.toggle('aside', step.stage === 'aside');
+}
+
+function renderComputer(sc, seen) {
+  const step = seen[seen.length - 1];
+  const reqIdx = lastIndex(seen, (s) => s.request);
+  const resIdx = lastIndex(seen, (s) => s.result);
+  const current = seen.length - 1;
+  const activeTool = step.tool || (step.request && step.request.tool) || (step.result && reqIdx >= 0 ? seen[reqIdx].request.tool : null);
+  $('tools').innerHTML = sc.tools.map((t) =>
+    `<div class="tool${t.name === activeTool ? ' active' : ''}"><div class="name">${escapeHtml(t.name)}</div><div class="desc">${escapeHtml(t.desc)}</div></div>`).join('');
+
+  const req = $('request');
+  req.hidden = reqIdx < 0;
+  if (reqIdx >= 0) {
+    const r = seen[reqIdx].request;
+    $('request-text').textContent = `${r.tool}(${r.input})`;
+    req.classList.toggle('old', reqIdx !== current && resIdx !== current);
+  }
+  const res = $('result');
+  res.hidden = resIdx < 0 || resIdx < reqIdx;
+  if (!res.hidden) {
+    $('result-text').textContent = seen[resIdx].result.text;
+    res.classList.toggle('err', Boolean(seen[resIdx].result.error));
+    res.classList.toggle('old', resIdx !== current);
+  }
+}
+
+function renderCaption(step) {
+  $('caption').textContent = step.caption || '';
+  const habit = $('habit');
+  habit.hidden = !step.habit;
+  if (step.habit) {
+    habit.innerHTML = `<span class="h-name">Habit: ${escapeHtml(HABITS[step.habit])}</span><span class="h-who">${escapeHtml(WHO[step.who])}</span>`;
+  }
+  const summary = $('summary');
+  summary.hidden = !step.summary;
+  if (step.summary) {
+    summary.innerHTML = step.summary.map((s) => `<li><b>${escapeHtml(HABITS[s.habit])}</b>${escapeHtml(s.who)}</li>`).join('');
+  }
+  $('ask').hidden = !step.ask;
+  $('ask-text').textContent = step.ask || '';
+}
+
+function renderFooter(steps, seen, step) {
+  const loopStage = step.stage === 'ask' || step.stage === 'aside' ? null : step.stage;
+  document.querySelectorAll('#loop .st').forEach((el) => {
+    const on = el.dataset.stage === loopStage;
+    el.style.background = on ? STAGES[el.dataset.stage].color : '';
+    el.style.color = on ? '#fff' : '';
+  });
+  $('counter').textContent = `Step ${state.index + 1} of ${steps.length}`;
+  $('btn-back').disabled = state.index === 0;
+  $('btn-next').disabled = state.index === steps.length - 1;
+  $('log-list').innerHTML = seen.filter((s) => s.log).map((s) => `<li>${escapeHtml(s.log)}</li>`).join('');
+  $('log').classList.toggle('open', state.logOpen);
+  $('btn-log').setAttribute('aria-pressed', String(state.logOpen));
+  $('btn-auto').setAttribute('aria-pressed', String(state.auto));
+}
+
+function render() {
+  const sc = SCENARIOS[state.scenario];
+  const seen = sc.steps.slice(0, state.index + 1);
+  const step = seen[seen.length - 1];
+  renderTabs();
+  renderMessages(seen);
+  renderModel(step);
+  renderComputer(sc, seen);
+  renderCaption(step);
+  renderFooter(sc.steps, seen, step);
+  ['person', 'model', 'computer'].forEach((p) =>
+    $(`p-${p}`).classList.toggle('focus', STAGES[step.stage].focus === p));
+}
+
+function centerOf(el) {
+  const r = el.getBoundingClientRect();
+  return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+}
+
+function fly(fromEl, toEl, text, color, revealEl) {
+  if (reducedMotion) return;
+  revealEl.classList.add('waiting');
+  const packet = document.createElement('div');
+  packet.className = 'packet';
+  packet.textContent = text;
+  packet.style.background = color;
+  document.body.appendChild(packet);
+  const from = centerOf(fromEl);
+  const to = centerOf(toEl);
+  const w = packet.offsetWidth / 2;
+  const h = packet.offsetHeight / 2;
+  packet.style.transform = `translate(${from.x - w}px, ${from.y - h}px)`;
+  packet.getBoundingClientRect();
+  packet.style.transform = `translate(${to.x - w}px, ${to.y - h}px)`;
+  setTimeout(() => { packet.remove(); revealEl.classList.remove('waiting'); }, 800);
+}
+
+function animateStep(step) {
+  if (step.request) {
+    fly($('thought'), $('request'), `${step.request.tool}(${step.request.input})`, 'var(--act)', $('request'));
+  } else if (step.result) {
+    fly($('result'), $('thought'), step.result.text.split('\n')[0], 'var(--observe)', $('thought'));
+  }
+}
+
+function go(index, animate) {
+  const steps = SCENARIOS[state.scenario].steps;
+  const next = Math.max(0, Math.min(index, steps.length - 1));
+  const forward = next === state.index + 1;
+  setState({ index: next });
+  render();
+  if (animate && forward) animateStep(steps[next]);
+  if (next === steps.length - 1) stopAuto();
+}
+
+function chooseScenario(i) {
+  if (i < 0 || i >= SCENARIOS.length) return;
+  stopAuto();
+  setState({ scenario: i, index: 0 });
+  history.replaceState(null, '', `#${i + 1}`);
+  render();
+}
+
+function stopAuto() {
+  clearInterval(autoTimer);
+  autoTimer = null;
+  setState({ auto: false });
+  $('btn-auto').setAttribute('aria-pressed', 'false');
+}
+
+function toggleAuto() {
+  if (state.auto) { stopAuto(); return; }
+  setState({ auto: true });
+  autoTimer = setInterval(() => go(state.index + 1, true), AUTO_MS);
+  render();
+}
+
+function toggleLog() {
+  setState({ logOpen: !state.logOpen });
+  render();
+}
+
+$('tabs').addEventListener('click', (e) => {
+  const btn = e.target.closest('button');
+  if (btn) chooseScenario(Number(btn.dataset.i));
+});
+$('btn-next').addEventListener('click', () => go(state.index + 1, true));
+$('btn-back').addEventListener('click', () => go(state.index - 1, false));
+$('btn-restart').addEventListener('click', () => go(0, false));
+$('btn-auto').addEventListener('click', toggleAuto);
+$('btn-log').addEventListener('click', toggleLog);
+document.addEventListener('keydown', (e) => {
+  const key = e.key;
+  if (['ArrowRight', ' ', 'PageDown', 'Enter'].includes(key)) { e.preventDefault(); go(state.index + 1, true); }
+  else if (['ArrowLeft', 'PageUp'].includes(key)) { e.preventDefault(); go(state.index - 1, false); }
+  else if (key === 'Home') go(0, false);
+  else if (['1', '2', '3'].includes(key)) chooseScenario(Number(key) - 1);
+  else if (key.toLowerCase() === 'l') toggleLog();
+  else if (key.toLowerCase() === 'a') toggleAuto();
+});
+
+// Deep links: #2 opens scenario 2, #2-9 opens scenario 2 at step 9.
+function startFromHash() {
+  const match = location.hash.match(/^#(\d)(?:-(\d+))?$/);
+  const scenario = match ? Number(match[1]) - 1 : 0;
+  const safeScenario = scenario >= 0 && scenario < SCENARIOS.length ? scenario : 0;
+  const lastStep = SCENARIOS[safeScenario].steps.length - 1;
+  const step = match && match[2] ? Math.min(Math.max(Number(match[2]) - 1, 0), lastStep) : 0;
+  setState({ scenario: safeScenario, index: step });
+  render();
+}
+startFromHash();
+</script>
+</body>
+</html>

@@ -1,0 +1,328 @@
+{
+  "rows_in": 979,
+  "rows_out": 946,
+  "counts": {
+    "date_YYYY-MM-DD": 431,
+    "price_USD": 197,
+    "date_Mon DD YYYY": 219,
+    "date_DD/MM/YYYY": 219,
+    "price_plain": 356,
+    "price_comma": 192,
+    "price_$": 201,
+    "name_fixed": 128,
+    "name:soup of day -> Soup of the Day": 10,
+    "blank": 9,
+    "name:Croisant -> Croissant": 7,
+    "name:chicken sandwich -> Chicken Sandwich": 10,
+    "name:Cheese Pasty -> Cheese Pastry": 7,
+    "name:Soup -> Soup of the Day": 5,
+    "name:Orange juice -> Fresh Orange Juice": 10,
+    "name:Cheese pastry -> Cheese Pastry": 7,
+    "exact_duplicate": 14,
+    "name:Expresso -> Espresso": 8,
+    "name:OJ -> Fresh Orange Juice": 6,
+    "refund": 3,
+    "name:Choc cake -> Chocolate Cake": 4,
+    "name:Cappucino -> Cappuccino": 6,
+    "name:chocolate cake -> Chocolate Cake": 6,
+    "name:Fresh OJ -> Fresh Orange Juice": 4,
+    "name:latte -> Latte": 8,
+    "total_line": 3,
+    "name:Choc. Cake -> Chocolate Cake": 2,
+    "name:Late -> Latte": 7,
+    "name:croissant -> Croissant": 3,
+    "smudged_qty": 4,
+    "name:cappuccino  -> Cappuccino": 4,
+    "name:Chkn sandwich -> Chicken Sandwich": 5,
+    "date_DD/MM (no year)": 24,
+    "date_DD.MM.YY": 32,
+    "date_Mon DD (no year)": 21,
+    "name:espresso -> Espresso": 4,
+    "name:CAPPUCCINO -> Cappuccino": 2,
+    "name:Capp. -> Cappuccino": 3
+  },
+  "usual_prices": {
+    "Espresso": 2.2,
+    "Cappuccino": 3.5,
+    "Latte": 3.8,
+    "Matcha Latte": 4.8,
+    "Tea": 1.8,
+    "Fresh Orange Juice": 4.0,
+    "Croissant": 2.5,
+    "Cheese Pastry": 2.8,
+    "Chocolate Cake": 4.5,
+    "Chicken Sandwich": 6.5,
+    "Soup of the Day": 5.0
+  },
+  "first_day": "2026-09-01",
+  "last_day": "2026-11-30",
+  "days_present": 89,
+  "days_with_unusual_product_count": {},
+  "notebook_rows_kept": 77,
+  "set_aside": [
+    {
+      "line": 104,
+      "row": [
+        "2026-09-11",
+        "Espresso",
+        "20",
+        "2.2",
+        ""
+      ],
+      "reason": "exact copy of line 103"
+    },
+    {
+      "line": 134,
+      "row": [
+        "2026-09-13",
+        "Chicken Sandwich",
+        "-1",
+        "6,50",
+        "refund"
+      ],
+      "reason": "refund, not a sale"
+    },
+    {
+      "line": 150,
+      "row": [
+        "15/09/2026",
+        "Tea",
+        "12",
+        "1.8",
+        ""
+      ],
+      "reason": "exact copy of line 149"
+    },
+    {
+      "line": 300,
+      "row": [
+        "TOTAL SEPTEMBER",
+        "",
+        "",
+        "17321.70",
+        "month total from till"
+      ],
+      "reason": "till month total, not a sale"
+    },
+    {
+      "line": 320,
+      "row": [
+        "02/10/2026",
+        "Cheese Pastry",
+        "19",
+        "2.80",
+        ""
+      ],
+      "reason": "exact copy of line 319"
+    },
+    {
+      "line": 353,
+      "row": [
+        "05/10/2026",
+        "Cheese Pastry",
+        "",
+        "2,80",
+        "qty smudged"
+      ],
+      "reason": "quantity missing (smudged)"
+    },
+    {
+      "line": 416,
+      "row": [
+        "2026-10-11",
+        "Latte",
+        "21",
+        "3,80",
+        ""
+      ],
+      "reason": "exact copy of line 415"
+    },
+    {
+      "line": 497,
+      "row": [
+        "18.10.26",
+        "Croisant",
+        "29",
+        "2.50 USD",
+        "typed from notebook"
+      ],
+      "reason": "exact copy of line 496"
+    },
+    {
+      "line": 502,
+      "row": [
+        "18.10.26",
+        "Soup of the Day",
+        "15",
+        "$5.00",
+        "typed from notebook"
+      ],
+      "reason": "exact copy of line 501"
+    },
+    {
+      "line": 524,
+      "row": [
+        "Oct 20 2026",
+        "Chicken Sandwich",
+        "9",
+        "6.50",
+        ""
+      ],
+      "reason": "exact copy of line 523"
+    },
+    {
+      "line": 528,
+      "row": [
+        "21/10/2026",
+        "Capp.",
+        "",
+        "3.50 USD",
+        "qty smudged"
+      ],
+      "reason": "quantity missing (smudged)"
+    },
+    {
+      "line": 628,
+      "row": [
+        "Oct 30 2026",
+        "Capp.",
+        "-1",
+        "3.50 USD",
+        "refund"
+      ],
+      "reason": "refund, not a sale"
+    },
+    {
+      "line": 649,
+      "row": [
+        "TOTAL OCTOBER",
+        "",
+        "",
+        "19872.90",
+        "month total from till"
+      ],
+      "reason": "till month total, not a sale"
+    },
+    {
+      "line": 675,
+      "row": [
+        "03/11/2026",
+        "Cappucino",
+        "26",
+        "3,50",
+        ""
+      ],
+      "reason": "exact copy of line 674"
+    },
+    {
+      "line": 712,
+      "row": [
+        "06/11/2026",
+        "Fresh Orange Juice",
+        "11",
+        "4.00 USD",
+        ""
+      ],
+      "reason": "exact copy of line 711"
+    },
+    {
+      "line": 769,
+      "row": [
+        "12/11/2026",
+        "Croissant",
+        "20",
+        "2.5",
+        ""
+      ],
+      "reason": "exact copy of line 768"
+    },
+    {
+      "line": 778,
+      "row": [
+        "2026-11-13",
+        "Latte",
+        "19",
+        "3,80",
+        ""
+      ],
+      "reason": "exact copy of line 777"
+    },
+    {
+      "line": 794,
+      "row": [
+        "2026-11-14",
+        "Cheese Pastry",
+        "27",
+        "2.80",
+        ""
+      ],
+      "reason": "exact copy of line 793"
+    },
+    {
+      "line": 795,
+      "row": [
+        "2026-11-14",
+        "Cheese Pastry",
+        "-1",
+        "2.80",
+        "refund"
+      ],
+      "reason": "refund, not a sale"
+    },
+    {
+      "line": 804,
+      "row": [
+        "2026-11-15",
+        "Fresh Orange Juice",
+        "",
+        "4.00",
+        "qty smudged"
+      ],
+      "reason": "quantity missing (smudged)"
+    },
+    {
+      "line": 836,
+      "row": [
+        "2026-11-18",
+        "Latte",
+        "19",
+        "$3.80",
+        ""
+      ],
+      "reason": "exact copy of line 835"
+    },
+    {
+      "line": 884,
+      "row": [
+        "2026-11-22",
+        "Cheese Pastry",
+        "",
+        "2.80 USD",
+        "qty smudged"
+      ],
+      "reason": "quantity missing (smudged)"
+    },
+    {
+      "line": 911,
+      "row": [
+        "24/11/2026",
+        "Matcha Latte",
+        "1",
+        "$4.80",
+        ""
+      ],
+      "reason": "exact copy of line 910"
+    },
+    {
+      "line": 979,
+      "row": [
+        "TOTAL NOVEMBER",
+        "",
+        "",
+        "18549.70",
+        "month total from till"
+      ],
+      "reason": "till month total, not a sale"
+    }
+  ]
+}

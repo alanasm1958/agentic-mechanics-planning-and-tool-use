@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weekly Meal Planner</title>
+<style>
+  :root {
+    --accent: #0063AC;
+    --accent-dark: #004b82;
+    --accent-soft: #e6f0f8;
+    --text: #1d2733;
+    --muted: #5a6573;
+    --line: #d5dde6;
+    --bg: #f5f7fa;
+    --card: #ffffff;
+    --danger: #a12622;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--text);
+    background: var(--bg);
+  }
+  header {
+    background: var(--accent);
+    color: #fff;
+    padding: 24px 16px;
+  }
+  header h1 { margin: 0; font-size: 1.8rem; line-height: 1.2; }
+  header p { margin: 6px 0 0; font-size: 1.05rem; opacity: 0.95; }
+  .wrap { max-width: 1180px; margin: 0 auto; }
+  main { padding: 16px; }
+  .layout { display: grid; gap: 20px; }
+  @media (min-width: 1000px) {
+    .layout { grid-template-columns: 1fr 400px; align-items: start; }
+    #list-section { position: sticky; top: 16px; }
+  }
+  section {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px 16px;
+  }
+  h2 { margin: 0 0 6px; font-size: 1.4rem; color: var(--accent-dark); }
+  .hint { margin: 0 0 14px; color: var(--muted); font-size: 1rem; }
+  .days { display: grid; gap: 12px; grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .days { grid-template-columns: 1fr 1fr; } }
+  .day {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px;
+    background: #fbfcfe;
+  }
+  .day h3 { margin: 0 0 8px; font-size: 1.15rem; }
+  .slot { display: block; margin-top: 8px; }
+  .slot span { display: block; font-weight: 600; font-size: 0.95rem; color: var(--muted); }
+  select, input[type="text"], input[type="number"] {
+    width: 100%;
+    font: inherit;
+    font-size: 1.05rem;
+    min-height: 48px;
+    padding: 8px 10px;
+    border: 1px solid #b9c4d0;
+    border-radius: 10px;
+    background: #fff;
+    color: var(--text);
+  }
+  select:focus, input:focus, button:focus-visible {
+    outline: 3px solid rgba(0, 99, 172, 0.35);
+    outline-offset: 1px;
+    border-color: var(--accent);
+  }
+  select.chosen { border-color: var(--accent); background: var(--accent-soft); }
+  button {
+    font: inherit;
+    font-size: 1.05rem;
+    min-height: 48px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: 2px solid var(--accent);
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  button:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+  button.secondary { background: #fff; color: var(--accent); }
+  button.secondary:hover { background: var(--accent-soft); }
+  button.link {
+    background: none; border: none; color: var(--danger);
+    min-height: 40px; padding: 6px 8px; font-size: 0.95rem; text-decoration: underline;
+  }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .summary {
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin: 0 0 12px;
+    font-weight: 600;
+  }
+  .shopping { list-style: none; margin: 0; padding: 0; }
+  .shopping li {
+    display: flex; justify-content: space-between; gap: 12px;
+    padding: 10px 2px;
+    border-bottom: 1px solid var(--line);
+    font-size: 1.1rem;
+  }
+  .shopping li:last-child { border-bottom: none; }
+  .shopping .amount { font-weight: 700; white-space: nowrap; color: var(--accent-dark); }
+  .empty { color: var(--muted); font-style: italic; margin: 8px 0; }
+  .small { font-size: 0.95rem; color: var(--muted); margin: 12px 0 0; }
+  #add-section { margin-top: 20px; }
+  .field { margin-bottom: 12px; }
+  .field label, .ing-head { display: block; font-weight: 600; margin-bottom: 4px; }
+  .ing-row {
+    display: grid;
+    grid-template-columns: 1fr 100px 120px 44px;
+    gap: 8px;
+    margin-bottom: 8px;
+    align-items: center;
+  }
+  @media (max-width: 520px) {
+    .ing-row {
+      grid-template-columns: 1fr 1fr 44px;
+      padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px dashed var(--line);
+    }
+    .ing-row .ing-name { grid-column: 1 / 3; grid-row: 1; }
+    .ing-row .ing-remove { grid-column: 3; grid-row: 1; }
+    .ing-row .ing-amount { grid-column: 1; grid-row: 2; }
+    .ing-row .ing-unit { grid-column: 2; grid-row: 2; }
+  }
+  .ing-remove {
+    min-height: 44px; width: 44px; padding: 0;
+    background: #fff; color: var(--danger); border: 2px solid var(--line); font-size: 1.3rem;
+  }
+  .ing-remove:hover { background: #fbecec; border-color: var(--danger); }
+  .message { margin: 10px 0 0; font-weight: 600; min-height: 1.5em; }
+  .message.error { color: var(--danger); }
+  .message.ok { color: #1e6b33; }
+  .my-dishes { list-style: none; padding: 0; margin: 8px 0 0; }
+  .my-dishes li {
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid var(--line); padding: 4px 0;
+  }
+  .jump {
+    position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 10;
+    display: block; text-align: center; text-decoration: none;
+    background: var(--accent); color: #fff; font-weight: 700;
+    padding: 14px 16px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  }
+  .jump[hidden] { display: none; }
+  @media (min-width: 1000px) { .jump { display: none !important; } }
+  @media (max-width: 999px) { body { padding-bottom: 88px; } }
+  footer { text-align: center; color: var(--muted); font-size: 0.95rem; padding: 8px 16px 32px; }
+  .print-only { display: none; }
+
+  @media print {
+    body { background: #fff; font-size: 14pt; }
+    header, #plan-section, #add-section, footer, .actions, .no-print, .jump { display: none !important; }
+    main { padding: 0; }
+    .layout { display: block; }
+    section { border: none; padding: 0; }
+    #list-section { position: static; }
+    .print-only { display: block; }
+    .summary { background: none; padding: 0; }
+    .shopping li { break-inside: avoid; }
+    .shopping li .name::before {
+      content: ""; display: inline-block; width: 14pt; height: 14pt;
+      border: 1.5pt solid #000; margin-right: 10pt; vertical-align: -2pt;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Weekly Meal Planner</h1>
+    <p>Pick lunch and dinner for each day. Your shopping list adds itself up.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="layout">
+    <section id="plan-section" aria-labelledby="plan-title">
+      <h2 id="plan-title">1. Pick your meals</h2>
+      <p class="hint">Amounts are for a family of about 4 people.</p>
+      <div class="days" id="days"></div>
+      <div class="actions">
+        <button type="button" class="secondary" id="clear-week">Clear the week</button>
+      </div>
+    </section>
+
+    <section id="list-section" aria-labelledby="list-title">
+      <h2 id="list-title"><span class="no-print">2. </span>Shopping list</h2>
+      <p class="print-only" id="print-meals"></p>
+      <p class="summary" id="summary" aria-live="polite"></p>
+      <ul class="shopping" id="shopping"></ul>
+      <p class="small">Salt, pepper and spices are not listed. Check your cupboard for those.</p>
+      <div class="actions">
+        <button type="button" id="print-list">Print shopping list</button>
+      </div>
+    </section>
+  </div>
+
+  <section id="add-section" aria-labelledby="add-title">
+    <h2 id="add-title">3. Add your own dish</h2>
+    <p class="hint">Give it a name and list what you need to buy. It will appear in every meal menu.</p>
+    <form id="add-form" novalidate>
+      <div class="field">
+        <label for="dish-name">Dish name</label>
+        <input type="text" id="dish-name" maxlength="60" placeholder="For example: Bean soup" autocomplete="off">
+      </div>
+      <span class="ing-head">Ingredients (what to buy, how much, unit)</span>
+      <div id="ing-rows"></div>
+      <div class="actions">
+        <button type="button" class="secondary" id="add-ing">+ Add another ingredient</button>
+        <button type="submit">Save my dish</button>
+      </div>
+      <p class="message" id="form-message" role="status"></p>
+    </form>
+    <div id="my-dishes-box" hidden>
+      <h3>Your dishes</h3>
+      <ul class="my-dishes" id="my-dishes"></ul>
+    </div>
+  </section>
+</main>
+
+<a href="#list-section" class="jump no-print" id="jump" hidden></a>
+
+<footer>Works without internet. Your plan is saved on this device only.</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  // ---------- Fixed data ----------
+  const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+  const MEALS = ["Lunch", "Dinner"];
+  const STORAGE_KEY = "mealPlanner.v1";
+
+  // Units: everything is stored in a base unit so amounts can be added together.
+  // "kg" is stored as "g" and "litre" as "ml".
+  const UNIT_CHOICES = ["piece", "g", "kg", "ml", "litre", "can", "clove", "bunch", "loaf", "pack"];
+  const TO_BASE = { kg: { unit: "g", factor: 1000 }, litre: { unit: "ml", factor: 1000 } };
+
+  function item(name, amount, unit) { return Object.freeze({ name: name, amount: amount, unit: unit }); }
+
+  const BUILT_IN_DISHES = Object.freeze([
+    { id: "b1", name: "Red lentil soup", ingredients: [
+      item("Red lentils", 300, "g"), item("Onion", 1, "piece"), item("Carrot", 2, "piece"),
+      item("Garlic", 3, "clove"), item("Lemon", 1, "piece"), item("Cooking oil", 30, "ml") ] },
+    { id: "b2", name: "Chicken and rice", ingredients: [
+      item("Chicken", 1000, "g"), item("Rice", 500, "g"), item("Onion", 2, "piece"),
+      item("Carrot", 2, "piece"), item("Cooking oil", 30, "ml") ] },
+    { id: "b3", name: "Pasta with tomato sauce", ingredients: [
+      item("Pasta", 500, "g"), item("Chopped tomatoes", 2, "can"), item("Onion", 1, "piece"),
+      item("Garlic", 3, "clove"), item("Cheese", 100, "g"), item("Cooking oil", 30, "ml") ] },
+    { id: "b4", name: "Vegetable omelette with bread", ingredients: [
+      item("Eggs", 8, "piece"), item("Tomato", 2, "piece"), item("Onion", 1, "piece"),
+      item("Green pepper", 1, "piece"), item("Bread", 1, "loaf"), item("Cooking oil", 15, "ml") ] },
+    { id: "b5", name: "Rice and beans", ingredients: [
+      item("Rice", 400, "g"), item("Kidney beans", 2, "can"), item("Onion", 1, "piece"),
+      item("Tomato", 2, "piece"), item("Garlic", 2, "clove"), item("Cooking oil", 30, "ml") ] },
+    { id: "b6", name: "Chickpea and potato stew", ingredients: [
+      item("Chickpeas", 2, "can"), item("Potatoes", 600, "g"), item("Tomato", 3, "piece"),
+      item("Onion", 1, "piece"), item("Garlic", 2, "clove"), item("Cooking oil", 30, "ml") ] },
+    { id: "b7", name: "Vegetable noodle stir fry", ingredients: [
+      item("Noodles", 400, "g"), item("Cabbage", 0.5, "piece"), item("Carrot", 2, "piece"),
+      item("Onion", 1, "piece"), item("Eggs", 4, "piece"), item("Soy sauce", 30, "ml"),
+      item("Cooking oil", 30, "ml") ] },
+    { id: "b8", name: "Baked fish with potatoes", ingredients: [
+      item("Fish fillets", 800, "g"), item("Potatoes", 800, "g"), item("Lemon", 1, "piece"),
+      item("Garlic", 2, "clove"), item("Cooking oil", 45, "ml") ] }
+  ].map(function (d) { return Object.freeze(Object.assign({}, d, { ingredients: Object.freeze(d.ingredients) })); }));
+
+  // ---------- State (replaced, never changed in place) ----------
+  let state = loadState();
+
+  function slotKey(day, meal) { return day + "|" + meal; }
+  function allDishes() { return BUILT_IN_DISHES.concat(state.customDishes); }
+  function findDish(id) { return allDishes().find(function (d) { return d.id === id; }) || null; }
+
+  function setState(next) {
+    state = Object.freeze(next);
+    saveState(state);
+    render();
+  }
+
+  // ---------- Saving on this device ----------
+  function loadState() {
+    const empty = Object.freeze({ plan: Object.freeze({}), customDishes: Object.freeze([]) });
+    let raw = null;
+    try { raw = window.localStorage.getItem(STORAGE_KEY); } catch (e) { return empty; }
+    if (!raw) return empty;
+    try {
+      const data = JSON.parse(raw);
+      const customDishes = Array.isArray(data.customDishes)
+        ? data.customDishes.filter(isValidDish).map(cleanDish) : [];
+      const knownIds = BUILT_IN_DISHES.concat(customDishes).map(function (d) { return d.id; });
+      const plan = {};
+      if (data.plan && typeof data.plan === "object") {
+        DAYS.forEach(function (day) {
+          MEALS.forEach(function (meal) {
+            const id = data.plan[slotKey(day, meal)];
+            if (typeof id === "string" && knownIds.indexOf(id) !== -1) plan[slotKey(day, meal)] = id;
+          });
+        });
+      }
+      return Object.freeze({ plan: Object.freeze(plan), customDishes: Object.freeze(customDishes) });
+    } catch (e) {
+      console.warn("Saved meal plan could not be read, starting fresh.", e);
+      return empty;
+    }
+  }
+
+  function saveState(s) {
+    try { window.localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); }
+    catch (e) { console.warn("Could not save the plan on this device.", e); }
+  }
+
+  function isValidDish(d) {
+    return d && typeof d.id === "string" && typeof d.name === "string" && d.name.trim() &&
+      Array.isArray(d.ingredients) && d.ingredients.length > 0 &&
+      d.ingredients.every(function (i) {
+        return i && typeof i.name === "string" && i.name.trim() &&
+          typeof i.amount === "number" && isFinite(i.amount) && i.amount > 0 &&
+          typeof i.unit === "string" && UNIT_CHOICES.indexOf(i.unit) !== -1;
+      });
+  }
+  function cleanDish(d) {
+    return Object.freeze({ id: d.id, name: d.name.trim(),
+      ingredients: Object.freeze(d.ingredients.map(function (i) { return toBase(i.name, i.amount, i.unit); })) });
+  }
+
+  // ---------- Adding up the shopping list ----------
+  function toBase(name, amount, unit) {
+    const conv = TO_BASE[unit];
+    return conv ? item(name.trim(), amount * conv.factor, conv.unit) : item(name.trim(), amount, unit);
+  }
+
+  function plannedDishes(plan) {
+    const result = [];
+    DAYS.forEach(function (day) {
+      MEALS.forEach(function (meal) {
+        const dish = findDish(plan[slotKey(day, meal)]);
+        if (dish) result.push(dish);
+      });
+    });
+    return result;
+  }
+
+  // Returns one line per ingredient and unit, with the amounts added together.
+  function buildShoppingList(dishes) {
+    const totals = new Map();
+    dishes.forEach(function (dish) {
+      dish.ingredients.forEach(function (ing) {
+        const key = ing.name.toLowerCase() + "|" + ing.unit;
+        const prev = totals.get(key);
+        totals.set(key, {
+          name: prev ? prev.name : ing.name,
+          unit: ing.unit,
+          amount: (prev ? prev.amount : 0) + ing.amount
+        });
+      });
+    });
+    return Array.from(totals.values()).sort(function (a, b) {
+      return a.name.localeCompare(b.name) || a.unit.localeCompare(b.unit);
+    });
+  }
+
+  function niceNumber(n) { return String(Math.round(n * 100) / 100); }
+
+  function formatAmount(amount, unit) {
+    if (unit === "g") return amount >= 1000 ? niceNumber(amount / 1000) + " kg" : niceNumber(amount) + " g";
+    if (unit === "ml") return amount >= 1000 ? niceNumber(amount / 1000) + " litres" : niceNumber(amount) + " ml";
+    if (unit === "piece") return niceNumber(amount);
+    const plural = { can: "cans", clove: "cloves", bunch: "bunches", loaf: "loaves", pack: "packs" };
+    return niceNumber(amount) + " " + (amount === 1 ? unit : (plural[unit] || unit));
+  }
+
+  // ---------- Drawing the page ----------
+  const daysBox = document.getElementById("days");
+  const shoppingBox = document.getElementById("shopping");
+  const summaryBox = document.getElementById("summary");
+  const printMeals = document.getElementById("print-meals");
+
+  function buildDayCards() {
+    daysBox.textContent = "";
+    DAYS.forEach(function (day) {
+      const card = document.createElement("div");
+      card.className = "day";
+      const title = document.createElement("h3");
+      title.textContent = day;
+      card.appendChild(title);
+      MEALS.forEach(function (meal) {
+        const label = document.createElement("label");
+        label.className = "slot";
+        const text = document.createElement("span");
+        text.textContent = meal;
+        const select = document.createElement("select");
+        select.dataset.slot = slotKey(day, meal);
+        select.setAttribute("aria-label", day + " " + meal.toLowerCase());
+        select.addEventListener("change", onSlotChange);
+        label.appendChild(text);
+        label.appendChild(select);
+        card.appendChild(label);
+      });
+      daysBox.appendChild(card);
+    });
+  }
+
+  function fillSelect(select, chosenId) {
+    select.textContent = "";
+    const none = document.createElement("option");
+    none.value = "";
+    none.textContent = "No meal planned";
+    select.appendChild(none);
+    allDishes().forEach(function (dish) {
+      const opt = document.createElement("option");
+      opt.value = dish.id;
+      opt.textContent = dish.name;
+      select.appendChild(opt);
+    });
+    select.value = chosenId || "";
+    select.classList.toggle("chosen", Boolean(chosenId));
+  }
+
+  function renderPlan() {
+    daysBox.querySelectorAll("select").forEach(function (select) {
+      fillSelect(select, state.plan[select.dataset.slot]);
+    });
+  }
+
+  function renderShoppingList() {
+    const dishes = plannedDishes(state.plan);
+    const list = buildShoppingList(dishes);
+    shoppingBox.textContent = "";
+    if (dishes.length === 0) {
+      summaryBox.textContent = "No meals planned yet.";
+      const li = document.createElement("li");
+      li.className = "empty";
+      li.textContent = "Pick a dish for any meal and your shopping list will appear here.";
+      shoppingBox.appendChild(li);
+    } else {
+      summaryBox.textContent = dishes.length + (dishes.length === 1 ? " meal" : " meals") +
+        " planned, " + list.length + (list.length === 1 ? " item" : " items") + " to buy.";
+      list.forEach(function (line) {
+        const li = document.createElement("li");
+        const name = document.createElement("span");
+        name.className = "name";
+        name.textContent = line.name;
+        const amount = document.createElement("span");
+        amount.className = "amount";
+        amount.textContent = formatAmount(line.amount, line.unit);
+        li.appendChild(name);
+        li.appendChild(amount);
+        shoppingBox.appendChild(li);
+      });
+    }
+    updateJump(dishes.length, list.length);
+    printMeals.textContent = "For: " + (dishes.length ? dishes.map(function (d) { return d.name; }).join(", ") : "no meals");
+    document.getElementById("print-list").disabled = dishes.length === 0;
+  }
+
+  // On phones the list sits below the planner, so show a shortcut button while the list is off screen.
+  const jump = document.getElementById("jump");
+  let listOnScreen = false;
+  let jumpText = "";
+  function updateJump(mealCount, itemCount) {
+    jumpText = mealCount ? "See shopping list (" + itemCount + (itemCount === 1 ? " item)" : " items)") : "";
+    jump.textContent = jumpText;
+    jump.hidden = !jumpText || listOnScreen;
+  }
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (entries) {
+      listOnScreen = entries[0].isIntersecting;
+      jump.hidden = !jumpText || listOnScreen;
+    }).observe(document.getElementById("list-section"));
+  }
+
+  function renderMyDishes() {
+    const box = document.getElementById("my-dishes-box");
+    const ul = document.getElementById("my-dishes");
+    ul.textContent = "";
+    box.hidden = state.customDishes.length === 0;
+    state.customDishes.forEach(function (dish) {
+      const li = document.createElement("li");
+      const name = document.createElement("span");
+      name.textContent = dish.name;
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "link";
+      btn.textContent = "Remove";
+      btn.setAttribute("aria-label", "Remove " + dish.name);
+      btn.addEventListener("click", function () { removeDish(dish.id); });
+      li.appendChild(name);
+      li.appendChild(btn);
+      ul.appendChild(li);
+    });
+  }
+
+  function render() { renderPlan(); renderShoppingList(); renderMyDishes(); }
+
+  // ---------- Actions ----------
+  function onSlotChange(event) {
+    const key = event.target.dataset.slot;
+    const value = event.target.value;
+    const plan = Object.assign({}, state.plan);
+    if (value) plan[key] = value; else delete plan[key];
+    setState({ plan: Object.freeze(plan), customDishes: state.customDishes });
+  }
+
+  document.getElementById("clear-week").addEventListener("click", function () {
+    if (Object.keys(state.plan).length === 0) return;
+    if (window.confirm("Clear all the meals for this week?")) {
+      setState({ plan: Object.freeze({}), customDishes: state.customDishes });
+    }
+  });
+
+  document.getElementById("print-list").addEventListener("click", function () { window.print(); });
+
+  function removeDish(id) {
+    const dish = findDish(id);
+    if (!dish || !window.confirm("Remove \"" + dish.name + "\" from your dishes?")) return;
+    const plan = {};
+    Object.keys(state.plan).forEach(function (k) { if (state.plan[k] !== id) plan[k] = state.plan[k]; });
+    setState({
+      plan: Object.freeze(plan),
+      customDishes: Object.freeze(state.customDishes.filter(function (d) { return d.id !== id; }))
+    });
+    showMessage("\"" + dish.name + "\" was removed.", "ok");
+  }
+
+  // ---------- Add your own dish form ----------
+  const ingRows = document.getElementById("ing-rows");
+  const formMessage = document.getElementById("form-message");
+
+  function addIngredientRow() {
+    const row = document.createElement("div");
+    row.className = "ing-row";
+    const amount = document.createElement("input");
+    amount.type = "number"; amount.min = "0"; amount.step = "any"; amount.inputMode = "decimal";
+    amount.placeholder = "Amount"; amount.className = "ing-amount"; amount.setAttribute("aria-label", "Amount");
+    const unit = document.createElement("select");
+    unit.className = "ing-unit"; unit.setAttribute("aria-label", "Unit");
+    UNIT_CHOICES.forEach(function (u) {
+      const opt = document.createElement("option");
+      opt.value = u; opt.textContent = u;
+      unit.appendChild(opt);
+    });
+    const name = document.createElement("input");
+    name.type = "text"; name.maxLength = 40; name.placeholder = "Ingredient, e.g. Onion";
+    name.className = "ing-name"; name.setAttribute("aria-label", "Ingredient name");
+    const remove = document.createElement("button");
+    remove.type = "button"; remove.className = "ing-remove"; remove.textContent = "×";
+    remove.setAttribute("aria-label", "Remove this ingredient");
+    remove.addEventListener("click", function () {
+      if (ingRows.children.length > 1) row.remove();
+      else { amount.value = ""; name.value = ""; unit.value = "piece"; }
+      formMessage.textContent = "";
+    });
+    row.appendChild(name); row.appendChild(amount); row.appendChild(unit); row.appendChild(remove);
+    ingRows.appendChild(row);
+    return row;
+  }
+
+  function showMessage(text, kind) {
+    formMessage.textContent = text;
+    formMessage.className = "message " + kind;
+  }
+
+  function readForm() {
+    const dishName = document.getElementById("dish-name").value.trim();
+    if (!dishName) return { error: "Please give your dish a name." };
+    const taken = allDishes().some(function (d) { return d.name.toLowerCase() === dishName.toLowerCase(); });
+    if (taken) return { error: "There is already a dish called \"" + dishName + "\". Please choose another name." };
+    const ingredients = [];
+    let problem = null;
+    Array.from(ingRows.children).forEach(function (row, index) {
+      const name = row.querySelector(".ing-name").value.trim();
+      const amountText = row.querySelector(".ing-amount").value.trim();
+      const unit = row.querySelector(".ing-unit").value;
+      if (!name && !amountText) return; // empty row, skip it
+      const amount = Number(amountText);
+      if (!name) problem = problem || "Ingredient " + (index + 1) + " needs a name.";
+      else if (!amountText || !isFinite(amount) || amount <= 0) problem = problem || "Please give \"" + name + "\" an amount bigger than 0.";
+      else ingredients.push(toBase(name, amount, unit));
+    });
+    if (problem) return { error: problem };
+    if (ingredients.length === 0) return { error: "Please add at least one ingredient." };
+    return { dish: Object.freeze({ id: "c" + Date.now(), name: dishName, ingredients: Object.freeze(ingredients) }) };
+  }
+
+  document.getElementById("add-ing").addEventListener("click", function () {
+    addIngredientRow().querySelector(".ing-name").focus();
+  });
+
+  document.getElementById("add-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+    const result = readForm();
+    if (result.error) { showMessage(result.error, "error"); return; }
+    setState({ plan: state.plan, customDishes: Object.freeze(state.customDishes.concat([result.dish])) });
+    document.getElementById("dish-name").value = "";
+    ingRows.textContent = "";
+    addIngredientRow(); addIngredientRow(); addIngredientRow();
+    showMessage("\"" + result.dish.name + "\" was added. You can now pick it in any meal.", "ok");
+  });
+
+  // ---------- Start ----------
+  buildDayCards();
+  addIngredientRow(); addIngredientRow(); addIngredientRow();
+  render();
+})();
+</script>
+</body>
+</html>
