@@ -5,70 +5,122 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Agent Bingo</title>
 <style>
-  :root { --blue: #0063AC; --ink: #1a1a1a; --muted: #5a6b80; --line: #dbe6f3; }
+  :root { --blue: #0063AC; --blue-soft: #e8f1f8; --ink: #1a1a1a; --muted: #5a6b80; --line: #dbe6f3; --bg: #f4f7fb; --win: #2e7d32; }
   * { box-sizing: border-box; }
-  body { margin: 0; background: #eef2f7; color: var(--ink); font-family: 'Helvetica Neue', Arial, sans-serif; }
-  .tip { max-width: 210mm; margin: 16px auto 0; padding: 0 4px; color: var(--muted); font-size: 14px; }
-  .page { width: 210mm; height: 297mm; margin: 16px auto; background: #fff; padding: 12mm; display: flex; flex-direction: column; gap: 10mm; }
-  .card { flex: 1; border: 3px solid var(--blue); border-radius: 16px; padding: 7mm; display: flex; flex-direction: column; }
-  .card header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5mm; }
-  .card h1 { margin: 0; color: var(--blue); font-size: 30px; letter-spacing: 1px; }
-  .card .rule { font-size: 14px; color: var(--muted); }
-  .grid { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: 4mm; }
-  .sq { border: 2px solid var(--line); border-radius: 12px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 4mm; }
-  .sq b { font-size: 21px; color: var(--blue); }
-  .sq span { font-size: 13px; color: var(--muted); margin-top: 2mm; }
-  .name { margin-top: 4mm; font-size: 14px; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 3mm; }
-  @media print {
-    body { background: #fff; }
-    .tip { display: none; }
-    .page { margin: 0; page-break-after: always; }
-    @page { size: A4; margin: 0; }
-  }
+  [hidden] { display: none !important; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 20px 16px 32px; }
+  h1 { margin: 0; color: var(--blue); font-size: 30px; letter-spacing: 1px; }
+  .intro { color: var(--muted); font-size: 16px; line-height: 1.45; margin: 6px 0 16px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .sq { background: #fff; border: 3px solid var(--line); border-radius: 14px; min-height: 120px; padding: 10px 8px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; cursor: pointer; font: inherit; color: inherit; transition: background .2s, border-color .2s, transform .1s; }
+  .sq:active { transform: scale(.97); }
+  .sq b { font-size: clamp(15px, 3.6vw, 19px); color: var(--blue); }
+  .sq span { font-size: clamp(11px, 2.6vw, 13px); color: var(--muted); margin-top: 6px; line-height: 1.3; }
+  .sq[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); }
+  .sq[aria-pressed="true"] b, .sq[aria-pressed="true"] span { color: #fff; }
+  .sq[aria-pressed="true"] b::before { content: '\2713  '; }
+  .sq.line { border-color: var(--win); box-shadow: 0 0 0 3px rgba(46, 125, 50, .35); }
+  .banner { margin-top: 16px; background: var(--win); color: #fff; border-radius: 14px; padding: 14px 18px; font-size: 20px; font-weight: 700; text-align: center; line-height: 1.4; }
+  .banner small { display: block; font-weight: 400; font-size: 15px; opacity: .95; }
+  .row { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; gap: 12px; flex-wrap: wrap; }
+  .count { color: var(--muted); font-size: 15px; }
+  button.reset { border: 2px solid var(--blue); background: #fff; color: var(--blue); border-radius: 10px; padding: 8px 14px; font: 700 15px 'Helvetica Neue', Arial, sans-serif; cursor: pointer; }
 </style>
 </head>
 <body>
-<p class="tip">Print (A4): 6 pages, 2 cards per page, 12 cards in different orders. Print more copies for a bigger room. Cut each page in half.</p>
-<div id="pages"></div>
+<div class="wrap">
+  <h1>AGENT BINGO</h1>
+  <p class="intro">Watch the AI agent work. When you spot one of these, tap the square. Three in a line (across, down or corner to corner)? Type <b>BINGO</b> in the chat.</p>
+  <div class="grid" id="grid" role="group" aria-label="Bingo card"></div>
+  <div class="banner" id="banner" hidden></div>
+  <div class="row">
+    <span class="count" id="count"></span>
+    <button class="reset" id="reset">New card</button>
+  </div>
+</div>
 <script>
   const SQUARES = [
-    ["Made a plan", "It wrote out its steps first"],
-    ["Used a tool", "It read, wrote or ran something"],
-    ["Hit an error", "Something did not work"],
-    ["Tried again", "It changed course after a problem"],
-    ["Asked permission", "It stopped to ask a human"],
-    ["Checked its own work", "It tested or looked at its result"],
+    ['Made a plan', 'It wrote out its steps first'],
+    ['Used a tool', 'It read, wrote or ran something'],
+    ['Hit an error', 'Something did not work'],
+    ['Tried again', 'It fixed its request and retried'],
+    ['Asked permission', 'It stopped to ask a human'],
+    ['Checked its own work', 'It tested or looked at its result'],
+    ['Read a file', 'It opened a file to see what was inside'],
+    ['Ran a small program', 'It wrote code and ran it'],
+    ['Changed its plan', 'A result made it do something new'],
   ];
-  const CARDS = 12;
+  const LINES = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
+  const STORE_KEY = 'agent-bingo-v1';
 
-  // Fixed-seed shuffle so every printout has the same 12 distinct cards.
-  function seededShuffle(items, seed) {
+  function shuffled(items) {
     const copy = [...items];
-    let s = seed;
     for (let i = copy.length - 1; i > 0; i--) {
-      s = (s * 9301 + 49297) % 233280;
-      const j = Math.floor((s / 233280) * (i + 1));
+      const j = Math.floor(Math.random() * (i + 1));
       [copy[i], copy[j]] = [copy[j], copy[i]];
     }
     return copy;
   }
 
-  function cardHtml(index) {
-    const squares = seededShuffle(SQUARES, index + 7)
-      .map(([title, hint]) => `<div class="sq"><b>${title}</b><span>${hint}</span></div>`)
-      .join("");
-    return `<div class="card"><header><h1>AGENT BINGO</h1>
-      <span class="rule">Tick a square when you spot it. Full row: shout "bingo!"</span></header>
-      <div class="grid">${squares}</div><div class="name">Name:</div></div>`;
+  function newCard() {
+    return { order: shuffled(SQUARES.map((_, i) => i)), ticked: [] };
   }
 
-  const container = document.getElementById("pages");
-  for (let p = 0; p < CARDS / 2; p++) {
-    const page = document.createElement("section");
-    page.className = "page";
-    page.innerHTML = cardHtml(p * 2) + cardHtml(p * 2 + 1);
-    container.appendChild(page);
+  function load() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORE_KEY));
+      if (saved && Array.isArray(saved.order) && saved.order.length === SQUARES.length && Array.isArray(saved.ticked)) return saved;
+    } catch (err) {
+      // Storage can be blocked (private window); a fresh card still works.
+    }
+    return newCard();
   }
+
+  function save(card) {
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(card)); } catch (err) { /* not saved, still playable */ }
+  }
+
+  let card = load();
+
+  function completedLines(ticked) {
+    return LINES.filter((line) => line.every((pos) => ticked.includes(pos)));
+  }
+
+  function render() {
+    const lines = completedLines(card.ticked);
+    const onLine = new Set(lines.flat());
+    document.getElementById('grid').innerHTML = card.order.map((sqIndex, pos) => {
+      const [title, hint] = SQUARES[sqIndex];
+      const on = card.ticked.includes(pos);
+      return `<button class="sq${onLine.has(pos) ? ' line' : ''}" data-pos="${pos}" aria-pressed="${on}"><b>${title}</b><span>${hint}</span></button>`;
+    }).join('');
+    const banner = document.getElementById('banner');
+    const full = card.ticked.length === SQUARES.length;
+    banner.hidden = lines.length === 0;
+    banner.innerHTML = full
+      ? 'FULL CARD! You spotted every mechanic.<small>Type FULL CARD in the chat.</small>'
+      : 'BINGO! Three in a line.<small>Type BINGO in the chat, then keep going for a full card.</small>';
+    document.getElementById('count').textContent = `${card.ticked.length} of ${SQUARES.length} spotted`;
+  }
+
+  document.getElementById('grid').addEventListener('click', (e) => {
+    const btn = e.target.closest('.sq');
+    if (!btn) return;
+    const pos = Number(btn.dataset.pos);
+    const ticked = card.ticked.includes(pos) ? card.ticked.filter((p) => p !== pos) : [...card.ticked, pos];
+    card = { ...card, ticked };
+    save(card);
+    render();
+  });
+
+  document.getElementById('reset').addEventListener('click', () => {
+    card = newCard();
+    save(card);
+    render();
+  });
+
+  render();
 </script>
 </body>
 </html>

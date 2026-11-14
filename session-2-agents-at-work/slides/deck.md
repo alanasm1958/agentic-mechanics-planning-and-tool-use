@@ -27,8 +27,8 @@ pre { font-size: 19px; background: #f6f8fc; border: 2px solid #dbe6f3; border-ra
 .col { flex: 1; background: #f6f8fc; border: 2px solid #dbe6f3; border-radius: 12px; padding: 16px 22px; font-size: 23px; }
 .col h3 { margin: 0 0 8px; color: #0063AC; font-size: 23px; }
 .hands { display: inline-block; background: #0063AC; color: #fff; font-size: 20px; font-weight: 700; padding: 6px 16px; border-radius: 8px; margin-bottom: 8px; }
-.bingo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 16px; }
-.bingo div { border: 3px solid #0063AC; border-radius: 12px; padding: 22px 10px; text-align: center; font-size: 25px; font-weight: 700; color: #0063AC; background: #f6f8fc; }
+.bingo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
+.bingo div { border: 3px solid #0063AC; border-radius: 12px; padding: 12px 10px; text-align: center; font-size: 22px; font-weight: 700; color: #0063AC; background: #f6f8fc; }
 .weak { font-size: 34px; text-align: center; background: #fff4f2; border: 2px solid #f0c4bc; border-radius: 12px; padding: 18px; margin: 16px auto; max-width: 80%; }
 section.lead { text-align: center; }
 section.lead h1 { font-size: 50px; }
@@ -77,7 +77,7 @@ Session 2: Watch an AI agent at work
 
 ## Agent bingo
 
-<span class="hands">Shout "bingo!" when you spot one</span>
+<span class="hands">Open the bingo link from the chat. Tap a square when you spot it.</span>
 
 <div class="bingo">
 <div>Made a plan</div>
@@ -86,9 +86,14 @@ Session 2: Watch an AI agent at work
 <div>Tried again</div>
 <div>Asked permission</div>
 <div>Checked its own work</div>
+<div>Read a file</div>
+<div>Ran a small program</div>
+<div>Changed its plan</div>
 </div>
 
-<!-- Hand out the printed bingo cards (handouts/agent-bingo.html). Each card has the same six squares in a different order. First person to fill a row wins, first to fill the card wins a bigger prize. -->
+<p class="takeaway">Three in a line? Type <span class="accent">BINGO</span> in the chat.</p>
+
+<!-- Paste the bingo link or file (handouts/agent-bingo.html) in the chat now. It works on phones and laptops, and every person gets the nine squares in a different order. Three in a line: they type BINGO in the chat. A full card: FULL CARD. Note the first names to call out at the end. -->
 
 ---
 
@@ -127,7 +132,7 @@ A good prompt is half the result.
 
 <p class="takeaway">Every question it has to guess is a chance to get it wrong.</p>
 
-<!-- Ask the room for the guesses before revealing them. -->
+<!-- Ask the chat for the guesses before revealing them: "What would the agent have to guess here?" -->
 
 ---
 
@@ -153,7 +158,7 @@ A good prompt is half the result.
 
 <div class="weak">"Help me plan a birthday party."</div>
 
-<p class="statement" style="text-align:center">In pairs, 2 minutes: rewrite it with <span class="accent">GOAL, CONTEXT, RULES, OUTPUT, CHECK</span>.</p>
+<p class="statement" style="text-align:center">2 minutes: rewrite it with <span class="accent">GOAL, CONTEXT, RULES, OUTPUT, CHECK</span>, then paste it in the chat.</p>
 
 <!-- 60 minute version only. Take two answers. Point out which part changed the result most: usually CONTEXT (age, budget, number of guests) or OUTPUT (a checklist? a timeline? a shopping list?). -->
 
@@ -291,16 +296,16 @@ TOTAL SEPTEMBER,,,17321.70,month total from till
 
 ## You are the client
 
-<span class="hands">Vote for one change</span>
+<span class="hands">Type 1, 2, 3 or 4 in the chat</span>
 
-1. Show it in a language this room speaks
+1. Show it in a language you speak
 2. Add an estimated cost for the week's shopping
 3. Mark vegetarian dishes and add a filter
 4. Group the shopping list by type: vegetables, dairy, dry goods
 
 <p class="takeaway">Every change gets its own small <span class="accent">CHECK</span>.</p>
 
-<!-- Take a quick vote. Type the winning change as a short prompt with a CHECK line (examples in prompts.md). Watch it go round the loop again. -->
+<!-- Count the numbers in the chat (or run a poll). Type the winning change as a short prompt with a CHECK line (examples in prompts.md). Watch it go round the loop again. -->
 
 ---
 
@@ -322,7 +327,7 @@ TOTAL SEPTEMBER,,,17321.70,month total from till
 
 <p class="takeaway">Not everything needs AI. Use the simplest thing that does the job.</p>
 
-<!-- Ask the room before revealing: "Was the meal planner an agent?" Many will say yes. The building was done by an agent. The thing it built is a plain web page. -->
+<!-- Ask the chat before revealing: "Was the meal planner an agent?" Many will say yes. The building was done by an agent. The thing it built is a plain web page. -->
 
 ---
 
@@ -330,23 +335,28 @@ TOTAL SEPTEMBER,,,17321.70,month total from till
 
 ## Your turn to think
 
+<span class="hands">Pick one and answer in the chat</span>
+
 <div class="cols">
 <div class="col"><h3>Hand it over</h3>What task in your life or work would you give to an agent?</div>
 <div class="col"><h3>Keep a human in charge</h3>Where would you want it to stop and ask you first?</div>
 <div class="col"><h3>Not worth it</h3>What would be faster with a simple prompt, or no AI at all?</div>
 </div>
 
-<!-- 5 to 8 minutes. Take three or four answers. Celebrate good "keep a human in charge" answers: money, messages to other people, deleting things, anything about personal data. -->
+<!-- 5 to 8 minutes. Give people a minute to type, then read out three or four answers and ask one or two people to unmute and say more. Celebrate good "keep a human in charge" answers: money, messages to other people, deleting things, anything about personal data. -->
 
 ---
 
 ## Keep going
 
-- **Reading list:** `take-home/reading-list.html`, start with the "Start here" items
-- **Curious about the code?** `take-home/agent-notebook.ipynb` builds the same loop in Python, step by step, in Google Colab
+- **Reading list:** start with the "Start here" items
+- **Hugging Face Agents Course, Unit 1:** the same loop, free and beginner friendly
+- **Curious about the code?** A notebook that builds the same loop in Python, in Google Colab
 - **Try it yourself:** write one prompt this week using GOAL, CONTEXT, RULES, OUTPUT, CHECK
 
-<!-- Bingo winners. Thank the room. -->
+<p class="takeaway">All links are in the chat now.</p>
+
+<!-- Share in the chat: take-home/reading-list.html, take-home/agent-notebook.ipynb and https://huggingface.co/learn/agents-course/unit1/introduction . Call out the first BINGO and FULL CARD names from the chat. Thank everyone. -->
 
 ---
 

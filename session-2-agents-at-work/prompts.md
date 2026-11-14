@@ -41,13 +41,13 @@ Which numbers can it trust? Is it allowed to change the file?
 
 **Strong:** show Prompt 1B below and point to each of the five parts.
 
-### Pair exercise (60-minute version only, 2 minutes)
+### Chat exercise (60-minute version only, 2 minutes)
 
-Give pairs this weak prompt and ask them to rewrite it with the five parts:
+Ask everyone to rewrite this weak prompt with the five parts and paste it in the chat:
 
 > Help me plan a birthday party.
 
-Take two answers. Point out which part each pair added that changes the result most
+Read out two answers. Point out which part each person added that changes the result most
 (usually CONTEXT or OUTPUT).
 
 ---
@@ -200,12 +200,12 @@ before you finish.
 **Why we wrote it like this**
 - *"One single HTML file that works offline"*: keeps the live demo fast and low-risk, and the result opens with a double-click.
 - *"8 dishes built in"*: the tool is useful the moment it opens.
-- *The CHECK section*: the agent opens its own app and tests it. Ask the room to watch for this.
+- *The CHECK section*: the agent opens its own app and tests it. Ask the chat to watch for this.
 - *Point to make in the discussion*: the finished meal planner contains no AI at all. The agent used AI to build an ordinary tool. Not everything needs AI.
 
 **Audience change requests (tested in rehearsal, offer these as options):**
 
-- "Add a switch to show the planner in [a language the room speaks]."
+- "Add a switch to show the planner in [a language the audience speaks]."
 - "Add an estimated cost for the week's shopping."
 - "Mark which dishes are vegetarian, and add a filter."
 - "Make the shopping list group items by type: vegetables, dairy, dry goods."

@@ -2,14 +2,14 @@
 
 A two-session course for a public audience, delivered by the UNDP Istanbul International
 Center for Private Sector in Development (IICPSD). Mixed, mostly beginner level. Each
-session is 45 to 60 minutes.
+session is 45 to 60 minutes, delivered online.
 
 ## Start here
 
 | Folder | Session | What you need |
 |--------|---------|---------------|
-| [`session-1-how-agents-work/`](session-1-how-agents-work/README.md) | **How AI agents think and act.** The five levels of AI setups, the agent loop, tools, planning. Theory, with a quiz and a role-play. | The deck, printed props. No API key. |
-| [`session-2-agents-at-work/`](session-2-agents-at-work/README.md) | **Watch an AI agent at work.** A short prompting lesson, then an AI agent cleans data, builds a presentation, makes a video and builds an app, live. | The deck, Claude Code on your laptop, printed bingo cards. |
+| [`session-1-how-agents-work/`](session-1-how-agents-work/README.md) | **How AI agents think and act.** The five levels of AI setups, the agent loop, tools, and four planning habits. Online, with polls and a step-by-step agent animation. | The deck and the animation, both in the browser. No API key. |
+| [`session-2-agents-at-work/`](session-2-agents-at-work/README.md) | **Watch an AI agent at work.** A short prompting lesson, then an AI agent cleans data, builds a presentation, makes a video and builds an app, live. | The deck, Claude Code on your laptop, and the online bingo card to send in the chat. |
 
 Each folder is self-contained: open its `README.md` for the run sheet, the checklist and
 what every file is for.
